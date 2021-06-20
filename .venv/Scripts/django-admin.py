@@ -1,4 +1,4 @@
-#!C:\Users\ACER\OneDrive\Documents\Fichiers\Git\Mon dépot\Elec\Elec\.venv\Scripts\python.exe
+#!C:\Users\ACER\OneDrive\Documents\Fichiers\Git\Mon dépot\Site-elec\.venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
