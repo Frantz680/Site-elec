@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\ACER\OneDrive\Documents\Fichiers\Git\Mon dépot\Elec\Elec\.venv"
+VIRTUAL_ENV="C:\Users\ACER\OneDrive\Documents\Fichiers\Git\Mon dépot\Site-elec\.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
