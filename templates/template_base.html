@@ -33,14 +33,14 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <form action="{% url 'search' %}" method="get">
+            <form action="" method="get">
               <input class="form-control me-2" type="text" placeholder="Chercher" name="search_user" id="navbar-input" style="margin-top: 5%;">
             </form>
           </li>
 
-          {% if request.user.is_authenticated %}
+
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
+              <a class="nav-link js-scroll-trigger" href="">
               <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
               </a>
             </li>
@@ -51,14 +51,14 @@
               </a>
             </li>  
 
-          {% else %}
+
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
               <img src="/static/image/person-fill.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
               </a>
             </li>
 
-          {% endif %}
+
 
         </ul>
       </div>
@@ -72,7 +72,7 @@
     <div class="container">
       <div class="col-lg-8 mx-auto text-center" id="ml_contact">
         <a href="{% url 'ml' %}" id="ml_footer">Mentions légales</a>
-        <a href="{% url 'contact' %}" id="contact_footer">Contact</a>
+        <a href="" id="contact_footer">Contact</a>
       </div>
     </div>
   </footer>
