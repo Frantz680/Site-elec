@@ -1,0 +1,64 @@
+{%  extends 'template_base.html' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block contenu %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="container my-auto">
+                <form method="POST" id="form_register">
+                    {% csrf_token %}
+                    <h1 class="mt-0" id="title_register">Inscription</h1>
+                    <div class="fieldWrapper my-label" id="class_register">
+                        <label for="{{ form.username.id_for_label }}" id="id_username">Nom d'utilisateur</label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            {% for error in form.username.errors %}
+                                <p class="errorform">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+        
+                    <div class="fieldWrapper my-label" id="class_register">
+                        <label for="{{ form.email.id_for_label }}" id="id_mail">Adresse email</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            {% for error in form.email.errors %}
+                                <p class="errorform">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+        
+                    <div class="fieldWrapper my-label" id="class_register">
+                        <label for="{{ form.password.id_for_label }}" id="id_mdp">Mot de passe</label>
+                        {{ form.password1 }}
+                        {% if form.password1.errors %}
+                            {% for error in form.password1.errors %}
+                                <p class="errorform">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+        
+                    <div class="fieldWrapper my-label" id="class_register">
+                        <label for="{{ form.password.id_for_label }}" id="id_mdp2">Confirmer mot de passe</label>
+                        {{ form.password2 }}
+                        {% if form.password2.errors %}
+                            {% for error in form.password2.errors %}
+                                <p class="errorform">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <input id="input_register" type="submit" value="Inscription" class="btn btn-primary" name="input_register">
+                        <div>
+                            Vous avez déjà un compte? <a href="{% url 'login' %}">Connexion</a>
+                        </div>
+                    </div>
+                </form>
+            </div>        
+        </div>
+    </div>
+</header>
+
+{% endblock %}

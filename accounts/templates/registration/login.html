@@ -1,0 +1,22 @@
+{% extends 'template_base.html' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block contenu %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <form method="POST">
+                <h1 class="mt-0" id="title_login">Connexion</h1>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Login" class="btn btn-primary">
+                <div>
+                    Vous n'avez pas encore un compte? <a href="{% url 'register' %}">Inscrivez-vous</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+{% endblock %}
