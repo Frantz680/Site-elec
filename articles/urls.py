@@ -1,9 +1,8 @@
 from django.urls import path
 
-from articles.views import home, ml
+from articles.views import home_tableau
 
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('mentions_legal/', ml, name='ml'),
+    path('tableau_elec/', home_tableau, name='home_tableau'),
 ]
