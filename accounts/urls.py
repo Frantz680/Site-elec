@@ -2,7 +2,7 @@ from django.urls import path
 
 from django.contrib.auth import views
 from .forms import LoginForm
-from accounts.views import my_account_views
+# from accounts.views import my_account_views
 
 urlpatterns = [
     path('login/', views.LoginView.as_view(
@@ -14,5 +14,5 @@ urlpatterns = [
         template_name='accounts/logout.html',
         next_page='/accounts/login/'), name="logout"),
 
-    path('my_account/', my_account_views, name='my_account'),
+    # path('my_account/', my_account_views, name='my_account'),
 ]
