@@ -1,0 +1,307 @@
+body
+{
+    margin: 0px;
+    color: rgb(253, 253, 253);
+}
+
+/*HEADER*/
+
+#title_principale
+{
+    color: rgb(245, 107, 69);
+}
+
+
+/*NAVBAR*/
+
+.navbar-logo{
+    height: 50px;
+}
+
+#navbar-input{
+    background-color: grey;
+}
+
+#navbar-input::placeholder{
+    color: rgb(253, 253, 253);
+}
+
+
+/*HISTORY*/
+
+#history_p
+{
+    font-size: 20px;
+}
+
+/*PRESENTATION*/
+
+#coletteremy
+{
+    color: rgb(245, 107, 69);
+}
+
+#ratatouille
+{
+    color: rgb(245, 107, 69);
+}
+
+/*COLETTE*/
+
+#colette
+{
+    color: rgb(245, 107, 69);
+}
+
+/*REMY*/
+
+#remy
+{
+    color: rgb(245, 107, 69);
+}
+
+.input
+{
+    font-size: 23px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(51, 51, 51);
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 0.85vw;
+    position: relative;
+    top: 40%;
+    left: 40%;
+    padding: 10px;
+    height: 10%;
+    width: 20%;
+}
+
+/*CONTACT*/
+
+#contact_p
+{
+    font-size: 20px;
+}
+
+#title_contact
+{
+    color: rgb(245, 107, 69);
+}
+
+#phone
+{
+    color: rgb(245, 107, 69);
+    font-size: 20px;
+}
+
+#email
+{
+    font-size: 20px;
+}
+
+/*FOOTER*/
+
+#ml_footer
+{
+    padding: 25px;
+}
+
+#contact_footer
+{
+    padding: 25px;
+}
+
+#ml_contact
+{
+    font-size: 20px;
+}
+
+/*MENTIONS_LEGALES.HTML*/
+
+#header_ml
+{
+    height: 500px;
+}
+
+#ml_p
+{
+    font-size: 20px;
+}
+
+#title_ml
+{
+    color: rgb(245, 107, 69);
+}
+
+#identiter
+{
+    color: rgb(245, 107, 69);
+}
+
+#coordonnee
+{
+    color: rgb(245, 107, 69);
+}
+
+#info_supp
+{
+    color: rgb(245, 107, 69);
+}
+
+/*LOGIN.HTML*/
+
+#title_login
+{
+    color: rgb(245, 107, 69);
+}
+
+/*REGISTER.HTML*/
+
+#form_register
+{
+    position: relative;
+}
+
+#title_register
+{
+    color: rgb(245, 107, 69);
+    margin: 25px;
+}
+
+#class_register
+{
+    margin: 5px;
+    position: relative;
+    font-size: 17px;
+}
+
+.my-label label
+{
+    width: 160px;
+}
+
+#input_register
+{
+    margin: 10px;
+}
+
+/*SEARCH.HTML*/
+/*HEADER*/
+
+#title_search
+{
+    color: rgb(245, 107, 69);
+}
+
+#title_nutri_search
+{
+    color: rgb(245, 107, 69);
+}
+
+/*DETAIL.HTML*/
+
+#detail_nutri_score
+{
+    height: 120px;
+    width: auto;
+    margin: 20px 20px;
+}
+
+#detail_nutri
+{
+    height: 200px;
+    width: auto;
+    margin: 20px 20px;
+}
+
+/*MY_ACCOUNT.HTML*/
+/*HEADER*/
+
+#header_my_account
+{
+    height: 500px;
+}
+
+/*INFORMATION_ACCOUNT*/
+
+#div_information_account
+{
+    font-size: 20px;
+}
+
+#title_info_account
+{
+    color: rgb(245, 107, 69);
+}
+
+#title_products_save
+{
+    color: rgb(245, 107, 69);
+}
+
+/*SECTION*/
+
+#title_substitut
+{
+    color: rgb(245, 107, 69);
+}
+
+.row-search{
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.product-card{
+    width: 18rem; 
+    float: left; 
+    margin: 50px 40px;
+}
+  
+.product-card-img{
+    height: 270px;
+    width: auto;
+    background: transparent no-repeat center;
+    background-size: cover;
+}
+   
+.product-card-title{
+    height: 120px;
+    color: rgb(245, 107, 69);
+}
+  
+.product-detail-img{
+    margin: 20px 40px;
+}
+  
+.product-card-badge{
+    position: absolute;
+    left: 250px;
+    top:-20px
+}
+
+.product-nutrigrade{
+    width: 50px; 
+    height: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+    padding-top: 20px;
+    color: white;
+    border-radius: 50%;
+    background-color: #ee4b28;
+}
+
+#search_product{
+    background-color: grey;
+}
+
+#search_product::placeholder{
+    color: rgb(253, 253, 253);
+}
+
+.h2{
+    color: rgb(253, 253, 253);
+}
