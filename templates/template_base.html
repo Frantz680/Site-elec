@@ -18,64 +18,52 @@
   <link rel="icon" type="image/png" href="{% static 'image/pur_beurre.png' %}" sizes="16x16">
 
 </head>
+<body>
 
   <!--Navbar-->
-
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href=""><img src=""
-          alt="pur_beurre" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" /> Elec</a>
-
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item">
-            <form action="" method="get">
-              <input class="form-control me-2" type="text" placeholder="Chercher" name="search_user" id="navbar-input" style="margin-top: 5%;">
-            </form>
-          </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">
-              <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
-              <img src="/static/image/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-              </a>
-            </li>  
-
-
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
-              <img src="/static/image/person-fill.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-              </a>
-            </li>
-
-
-
-        </ul>
+  <nav class="navbar navbar-interne navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="container_home">
+      <div class="logo-dokko">
+        <a class="align-center" href="">
+          <img src="" class="navbar-brand-img-interne" alt="...">
+        </a>
       </div>
     </div>
   </nav>
 
-  {% block contenu %} {% endblock %}
+  <!--Sidebar-->
+  <div class="row ">
+    <div class="col-md-2 side-bar">
+      <ul class="navbar-nav" >
+          <li>
+              <h6 class="side-menu-elements">
+                  <a class="txt-menu" href="">
+                  <img src="" class="icon-menu"> Home
+                  </a>
+              </h6>
+          </li>
+          <li>
+              <h6 class="side-menu-elements">
+                  <a class="txt-menu" href="">
+                      <img src="" class="icon-menu"> Dashboards météo
+                  </a>
+              </h6>
+          </li>
+      </ul>
+  </div>
 
-  <!-- Footer-->
-  <footer class="bg-light py-5">
-    <div class="container">
-      <div class="col-lg-8 mx-auto text-center" id="ml_contact">
-        <a href="" id="ml_footer">Mentions légales</a>
-        <a href="" id="contact_footer">Contact</a>
+    {% block contenu %} {% endblock contenu %}
+
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+      <div class="container">
+        <div class="col-lg-8 mx-auto text-center" id="ml_contact">
+          <a href="" id="ml_footer">Mentions légales</a>
+          <a href="" id="contact_footer">Contact</a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <!-- Bootstrap core JS-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
