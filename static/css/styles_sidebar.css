@@ -1,0 +1,21 @@
+/********************
+*******SIDEBAR*******
+********************/
+
+.icon-menu {
+    width:25px;
+    height:25px;
+}
+
+.side-menu-elements {
+    font-size:1.1em;
+    padding-top:7px;
+    padding-bottom:7px;
+    padding:30px;
+}
+
+.side-bar {
+    background-color:rgba(248,248,248,1);
+    padding-top:25px;
+    min-height: 850px;
+}

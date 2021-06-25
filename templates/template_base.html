@@ -13,6 +13,7 @@
 
   <!-- Core theme CSS (includes Bootstrap)-->
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles-boostrap.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles_sidebar.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
   <!-- Favicon-->
@@ -25,31 +26,35 @@
   <nav class="navbar navbar-interne navbar-expand-md navbar-light bg-white shadow-sm">
     <div id="container_home">
       <div class="logo-elec">
-        <a class="align-center" href="">
-          <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec" style="height: 20px;">
+        <a class="align-center" href="{% url 'home' %}">
+          <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec">
         </a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto my-2 my-lg-0">
 
-        {% if request.user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
-          <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-          </a>
-        </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
+              <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+              </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
-          <img src="/static/image/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-          </a>
-        </li>  
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
+              <img src="/static/image/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+              </a>
+            </li>  
 
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
-          <img src="/static/image/person-fill.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-          </a>
-        </li>
-        {% endif %}
-
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
+              <img src="/static/image/person-fill.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+              </a>
+            </li>
+            {% endif %}
+            
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -58,10 +63,11 @@
   <div class="row ">
     <div class="col-md-2 side-bar">
       <ul class="navbar-nav" >
+
         <li>
           <h6 class="side-menu-elements">
             <a class="txt-menu" href="{% url 'home' %}">
-              <img src="" class="icon-menu"> Home
+              <img src="/static/image/icon/accueil.svg" class="icon-menu">Home
             </a>
           </h6>
         </li>
@@ -69,7 +75,7 @@
         <li>
           <h6 class="side-menu-elements">
             <a class="txt-menu" href="{% url 'home_lumiere' %}">
-              <img src="" class="icon-menu"> Lumière
+              <img src="/static/image/icon/lumiere.svg" class="icon-menu">Lumière
             </a>
           </h6>
         </li>
@@ -77,7 +83,7 @@
         <li>
           <h6 class="side-menu-elements">
             <a class="txt-menu" href="{% url 'home_prise' %}">
-              <img src="" class="icon-menu"> Prise électrique
+              <img src="/static/image/icon/prise.png" class="icon-menu">Prise électrique
             </a>
           </h6>
         </li>
@@ -85,19 +91,20 @@
         <li>
           <h6 class="side-menu-elements">
             <a class="txt-menu" href="{% url 'home_tableau' %}">
-              <img src="" class="icon-menu"> Tableau electrique
+              <img src="" class="icon-menu">Tableau electrique
             </a>
           </h6>
         </li>
+
       </ul>
+    </div>
+    {% block contenu %} {% endblock contenu %}
   </div>
 
-    {% block contenu %} {% endblock contenu %}
-
     <!-- Footer-->
-    <footer class="bg-light py-5">
+    <footer class="bg-light">
       <div class="container">
-        <div class="col-lg-8 mx-auto text-center" id="ml_contact">
+        <div class="col-lg-10 mx-auto text-center" id="ml_contact">
           <a href="" id="ml_footer">Mentions légales</a>
           <a href="" id="contact_footer">Contact</a>
         </div>

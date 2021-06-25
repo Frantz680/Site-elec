@@ -1,6 +1,6 @@
 from django.urls import path
 
-from lumiere.views import home
+from tableau.views import home
 
 urlpatterns = [
     path('', home, name='home_tableau'),
