@@ -12,10 +12,11 @@
   <title>{% block title %}{% endblock %}</title>
 
   <!-- Core theme CSS (includes Bootstrap)-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles-boostrap.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
   <!-- Favicon-->
-  <link rel="icon" type="image/png" href="{% static 'image/pur_beurre.png' %}" sizes="16x16">
+  <link rel="icon" type="image/jpg" href="{% static 'image/logo/icon-elec.jpg' %}" sizes="16x16">
 
 </head>
 <body>
@@ -23,10 +24,32 @@
   <!--Navbar-->
   <nav class="navbar navbar-interne navbar-expand-md navbar-light bg-white shadow-sm">
     <div id="container_home">
-      <div class="logo-dokko">
+      <div class="logo-elec">
         <a class="align-center" href="">
-          <img src="" class="navbar-brand-img-interne" alt="...">
+          <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec" style="height: 20px;">
         </a>
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
+          <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
+          <img src="/static/image/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+          </a>
+        </li>  
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
+          <img src="/static/image/person-fill.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+          </a>
+        </li>
+        {% endif %}
+
       </div>
     </div>
   </nav>
@@ -35,20 +58,37 @@
   <div class="row ">
     <div class="col-md-2 side-bar">
       <ul class="navbar-nav" >
-          <li>
-              <h6 class="side-menu-elements">
-                  <a class="txt-menu" href="">
-                  <img src="" class="icon-menu"> Home
-                  </a>
-              </h6>
-          </li>
-          <li>
-              <h6 class="side-menu-elements">
-                  <a class="txt-menu" href="">
-                      <img src="" class="icon-menu"> Dashboards météo
-                  </a>
-              </h6>
-          </li>
+        <li>
+          <h6 class="side-menu-elements">
+            <a class="txt-menu" href="{% url 'home' %}">
+              <img src="" class="icon-menu"> Home
+            </a>
+          </h6>
+        </li>
+
+        <li>
+          <h6 class="side-menu-elements">
+            <a class="txt-menu" href="{% url 'home_lumiere' %}">
+              <img src="" class="icon-menu"> Lumière
+            </a>
+          </h6>
+        </li>
+
+        <li>
+          <h6 class="side-menu-elements">
+            <a class="txt-menu" href="{% url 'home_prise' %}">
+              <img src="" class="icon-menu"> Prise électrique
+            </a>
+          </h6>
+        </li>
+
+        <li>
+          <h6 class="side-menu-elements">
+            <a class="txt-menu" href="{% url 'home_tableau' %}">
+              <img src="" class="icon-menu"> Tableau electrique
+            </a>
+          </h6>
+        </li>
       </ul>
   </div>
 
