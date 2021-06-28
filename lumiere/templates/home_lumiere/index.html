@@ -4,66 +4,127 @@
 
 {% block contenu %}
 
-<header class="masthead col-md-10">
+<div class="masthead-lumiere-home col-md-10">
     <div class="container-home">
         <div class="container">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10 align-self-end">
-                    <h1 class="text-uppercase font-weight-bold title_principale">Tout savoir sur la lumières !</h1>
+                    <h1 class="text-uppercase font-weight-bold title_orange">Tout savoir sur la lumières !</h1>
                     <hr class="divider my-4" />
                 </div>
-                <h2 class="text-center mt-5">
+                <h2 class="text-center mt-2 title_orange">
                     Quel type de lampe ou d'ampoule choisir ?
                 </h2>
-                <h3 class="text-center mt-5">
+                <h3 class="text-center mt-5 title_orange">
                     Comment différencier les ampoules à leds, incandescence, halogène, tube fluorescent ou l'amouple fluocompacte ?
-                </h3>
+                </h3>            
             </div>
             <hr class="divider my-4" />
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="text-left mt-5">
-                        Ampoules Leds
-                    </h4>
-                    <p class="font-weight-bold text-left">
-                        Les leds sont des diodes électroluminescentes (DEL en français ou Light-Emitting Diode = LED en anglais).
-                        Lorsqu'un courant électrique circule d'une couche à l'autre, des photons de lumières sont libérés.
-                    </p>
-
-                    <h4 class="text-left mt-5">
-                        Ampoules Halogènes
-                    </h4>
-                    <p class="font-weight-bold text-left">
-                        Ce sont aussi des ampoules à incandescence. Mais l'ampoule est ici remplie de brome ou d'iode, 
-                        ce qui permet au filament d'être beaucoup plus chaud (donc plus de lumières). 
-                    </p>
-
-                    <h4 class="text-left mt-5">
-                        Tubes fluorescents
-                    </h4>
-                    <p class="font-weight-bold text-left">
-                        Une décharge électrique est produite dans un tube de verre rempli de vapeur de mercure, cela provoque 
-                        un rayonnement ultraviolet. 
-                    </p>
-
-                    <h4 class="text-left mt-5">
-                        Fluocompactes
-                    </h4>
-                    <p class="font-weight-bold text-left">
-                        Ces ampoules permettent d'avoir des lumières chaudes ou froides. 
-                    </p>
-
-                    <h4 class="text-left mt-5">
-                        Ampoules à incandescence
-                    </h4>
-                    <p class="font-weight-bold text-left">
-                        Il fut un temps ou ces ampoules étaient les plus connues et les plus répandues. Un filament de tungstène, 
-                        placé dans une lampe de verre, est chauffé à blanc par le courant électrique.
-                    </p>
-                </div>
-            </div>
         </div> 
     </div>
-</header>
+    <div class="col-lg-10 text-center">
+        <h4 class="text-left mt-5 title_orange">
+            Ampoules Leds
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Les leds sont des diodes électroluminescentes (DEL en français ou Light-Emitting Diode = LED en anglais).
+            Lorsqu'un courant électrique circule d'une couche à l'autre, des photons de lumières sont libérés.
+        </p>
+    
+        <h4 class="text-left mt-5 title_orange">
+            Ampoules Halogènes
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Ce sont aussi des ampoules à incandescence. Mais l'ampoule est ici remplie de brome ou d'iode, 
+            ce qui permet au filament d'être beaucoup plus chaud (donc plus de lumières). 
+        </p>
+    
+        <h4 class="text-left mt-5 title_orange">
+            Tubes fluorescents
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Une décharge électrique est produite dans un tube de verre rempli de vapeur de mercure, cela provoque 
+            un rayonnement ultraviolet. 
+        </p>
+    
+        <h4 class="text-left mt-5 title_orange">
+            Fluocompactes
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Ces ampoules permettent d'avoir des lumières chaudes ou froides. 
+        </p>
+    
+        <h4 class="text-left mt-5 title_orange">
+            Ampoules à incandescence
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Il fut un temps ou ces ampoules étaient les plus connues et les plus répandues. Un filament de tungstène, 
+            placé dans une lampe de verre, est chauffé à blanc par le courant électrique.
+        </p>
+    </div>
+    <div class="col-lg-10 text-center text-muted">
+        <h3 class="text-center mt-5 title_orange">
+            Performances des différentes ampoules
+        </h3>
+        <table class="mt-5">
+            <thead>
+                <tr>
+                <th scope="col" class="col-title">Type de lampe</th>
+                <th scope="col" class="col-title">Puissance <br/> (W)</th>
+                <th scope="col" class="col-title">Flux lumineux <br/>(lm)</th>
+                <th scope="col" class="col-title">Efficacité lumineuse <br/>(lm/W)</th>
+                <th scope="col" class="col-title">Indice de rendu des couleurs <br/>(IRC)</th>
+                <th scope="col" class="col-title">Température de couleur <br/>(K)</th>
+                <th scope="col" class="col-title">Durée de vie moyenne <br/>(h)</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                <th scope="row" class="col-ampoule title_orange">LED</th>
+                <td>2 à 15</td>
+                <td>5 à 20</td>
+                <td>50</td>
+                <td>70 à 85</td>
+                <td>2 700 à 6 500</td>
+                <td>50 000 à 100 000</td>
+                </tr>
+
+                <tr>
+                <th scope="row" class="col-ampoule title_orange">Halogène</th>
+                <td>40 à 2 000</td>
+                <td>500 à 50 000</td>
+                <td>12,2 à 25</td>
+                <td>100</td>
+                <td>3 000</td>
+                <td>2 000</td>
+                </tr>
+            
+                <tr>
+                <th scope="row" class="col-ampoule title_orange">Tube fluorescent</th>
+                <td>14 à 58</td>
+                <td>1 150 à 5 200</td>
+                <td>64 à 104</td>
+                <td>60 à 90</td>
+                <td>2 700 à 6 500</td>
+                <td>14 000 à 18 000</td>
+                </tr>
+
+                <tr>
+                    <th scope="row" class="col-ampoule title_orange">incandescence</th>
+                    <td>25 à 500</td>
+                    <td>220 à 8 200</td>
+                    <td>9 à 16</td>
+                    <td>100</td>
+                    <td>2 700</td>
+                    <td>1000</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 
 {% endblock contenu %}

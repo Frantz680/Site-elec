@@ -6,7 +6,7 @@ body
 
 /*HEADER*/
 
-#title_principale
+.title_orange
 {
     color: rgb(245, 107, 69);
 }
@@ -90,23 +90,6 @@ body
 }
 
 #email
-{
-    font-size: 20px;
-}
-
-/*FOOTER*/
-
-#ml_footer
-{
-    padding: 25px;
-}
-
-#contact_footer
-{
-    padding: 25px;
-}
-
-#ml_contact
 {
     font-size: 20px;
 }
