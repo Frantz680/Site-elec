@@ -1,0 +1,16 @@
+/********************
+*******NAVBAR*******
+********************/
+
+.navbar{
+    background-color:rgba(248,248,248,1);
+}
+
+.navbar-logo{
+    height: 50px;
+}
+
+.title_logo{
+    color: rgb(245, 107, 69);
+    
+}

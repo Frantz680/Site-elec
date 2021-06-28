@@ -14,6 +14,7 @@
   <!-- Core theme CSS (includes Bootstrap)-->
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles-boostrap.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles_sidebar.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles_navbar.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
   <!-- Favicon-->
@@ -23,38 +24,41 @@
 <body>
 
   <!--Navbar-->
-  <nav class="navbar navbar-interne navbar-expand-md navbar-light bg-white shadow-sm">
-    <div id="container_home">
+  <nav class="navbar navbar-interne navbar-expand-md">
+    <div class="container-home">
+
       <div class="logo-elec">
         <a class="align-center" href="{% url 'home' %}">
           <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec">
         </a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto my-2 my-lg-0">
+      </div>
 
-            {% if request.user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
-              <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-              </a>
-            </li>
+      <p class="title_logo" >Apprend-Elec</p>
 
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
-              <img src="/static/image/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-              </a>
-            </li>  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
+            <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+            </a>
+          </li>
 
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
-              <img src="/static/image/person-fill.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-              </a>
-            </li>
-            {% endif %}
-            
-          </ul>
-        </div>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
+            <img src="/static/image/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+            </a>
+          </li>  
+
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">
+            <img src="/static/image/icon/login.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+
       </div>
     </div>
   </nav>
@@ -91,7 +95,7 @@
         <li>
           <h6 class="side-menu-elements">
             <a class="txt-menu" href="{% url 'home_tableau' %}">
-              <img src="" class="icon-menu">Tableau electrique
+              <img src="" class="icon-menu">Tableau électrique
             </a>
           </h6>
         </li>
