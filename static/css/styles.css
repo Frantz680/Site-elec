@@ -22,22 +22,6 @@ body
     padding: 0px;
 }
 
-
-/*NAVBAR*/
-
-.navbar-logo{
-    height: 50px;
-}
-
-#navbar-input{
-    background-color: grey;
-}
-
-#navbar-input::placeholder{
-    color: rgb(253, 253, 253);
-}
-
-
 /*HISTORY*/
 
 #history_p
