@@ -1,5 +1,7 @@
 {% extends 'template_base.html' %}
 
+{% load static %}
+
 {% block title %}Tableau électrique{% endblock %}
 
 {% block contenu %}
@@ -72,6 +74,43 @@
             Le type F (anciennement HI, HPI ou ASI)
             <br/>
             Il est utilisé pour les appareils sensibles comme le matiériel informatique, le congélateur et l'alarme.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le délesteur
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Lorsque vous dépasser la puissance sur votre vote disjoncteur, il coupe l'alimentation de un ou de plusieurs circuits
+            non prioritaire (convecteur). Cela évite le déclanchement du disjoncteur principal.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le contacteur jour/nuit
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Il permet la mise sous tension durant les plages horaires à tarif réduit. Une horloge programmable remplit le même rôle.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le télérupteur
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Il vous permet de mettre trois ou plus interrupteur sur un circuit de lumières, souvent utilisé pour la cage d'escalier.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le relais temporisé
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Il permet de commander la mise sous et/ou hors tension d'un circuit (éclairage) en fonction d'une durée déterminée.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            La minuterie
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Commandée par un bouton poussoir, elle permet d'allumer et de s'éteindre automatiquement (le garage, cave) pour 
+            une durée déterminée.
         </p>
     </div>
 </div>
