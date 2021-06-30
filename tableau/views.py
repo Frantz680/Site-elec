@@ -9,3 +9,11 @@ def home(request):
     """
 
     return render(request, "home_tableau/index.html")
+
+
+def disjoncteur(request):
+    """
+
+    """
+
+    return render(request, "home_tableau/disjoncteur.html")

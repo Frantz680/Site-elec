@@ -66,11 +66,79 @@
   </nav>
 
   <!--Sidebar-->
-  <div class="row ">
+  <div class="row ">      
     <div class="col-md-2 side-bar">
-      <ul class="navbar-nav" >
+      <nav class="sidebar">
 
-        <li>
+        <ul>
+          <li>
+            <h6 class="side-menu-elements">
+              <a class="txt-menu" href="{% url 'home' %}">
+                <img src="/static/image/icon/accueil.svg" class="icon-menu">Home
+              </a>
+            </h6>
+          </li>
+
+          <li>
+            <h6 class="side-menu-elements">
+              <a href="#lumiere" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="lumiere">
+                <img src="/static/image/icon/lumiere.svg" class="icon-menu">Lumière
+              </a>
+              <ul class="collapse list-unstyled" id="lumiere">
+                  <li>
+                    <a class="txt-menu" href="{% url 'home_lumiere' %}">Type d'ampoule</a>
+                  </li>
+                  <li>
+                    <a class="txt-menu" href="{% url 'interrupteur' %}">Intérrupteurs</a>
+                  </li>
+                  <!-- <li>
+                      <a class="scroll-link" href="#section-4">We think that...</a>
+                  </li> -->
+              </ul>
+            </h6>  
+          </li>
+
+          <li>
+            <h6 class="side-menu-elements">
+              <a href="#prise" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="prise">
+                <img src="/static/image/icon/prise.png" class="icon-menu">Prise électrique
+              </a>
+              <ul class="collapse list-unstyled" id="prise">
+                <li>
+                  <a class="txt-menu" href="{% url 'home_prise' %}">Home</a>
+                </li>
+                <li>
+                  <a class="txt-menu" href="{% url 'placo' %}">Placo</a>
+                </li>
+                <li>
+                  <a class="txt-menu" href="{% url 'beton' %}">Béton</a>
+                </li>
+                <li>
+                  <a class="txt-menu" href="{% url 'garage' %}">Garage/Cave</a>
+                </li>
+              </ul>
+            </h6>  
+          </li>
+
+          <li>
+            <h6 class="side-menu-elements">
+              <a href="#tableau" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="tableau">
+                <img src="/static/image/icon/tableau.png" class="icon-menu">Tableau électrique
+              </a>
+              <ul class="collapse list-unstyled" id="tableau">
+                  <li>
+                    <a class="txt-menu" href="{% url 'home_tableau' %}">Les disjoncteurs</a>
+                  </li>
+                  <!-- <li>
+                      <a class="scroll-link" href="#section-4">We think that...</a>
+                  </li> -->
+              </ul>
+            </h6>  
+          </li>
+
+        </ul>
+
+        <!-- <li>
           <h6 class="side-menu-elements">
             <a class="txt-menu" href="{% url 'home' %}">
               <img src="/static/image/icon/accueil.svg" class="icon-menu">Home
@@ -80,29 +148,40 @@
 
         <li>
           <h6 class="side-menu-elements">
-            <a class="txt-menu" href="{% url 'home_lumiere' %}">
               <img src="/static/image/icon/lumiere.svg" class="icon-menu">Lumière
-            </a>
+            <ul class="dropdown-menu">
+              <li><a class="txt-menu" href="{% url 'home_lumiere' %}">Type d'ampoule</a></li>
+              <li><a class="txt-menu" href="#">CSS</a></li>
+              <li><a  class="txt-menu" href="#">JavaScript</a></li>
+            </ul>
           </h6>
         </li>
 
         <li>
           <h6 class="side-menu-elements">
-            <a class="txt-menu" href="{% url 'home_prise' %}">
-              <img src="/static/image/icon/prise.png" class="icon-menu">Prise électrique
-            </a>
+            <img src="/static/image/icon/prise.png" class="icon-menu">Prise électrique
+            <ul class="sous">
+              <li><a class="txt-menu" href="{% url 'home_prise' %}">Prise</a></li>
+              <li><a class="txt-menu" href="#">CSS</a></li>
+              <li><a  class="txt-menu" href="#">JavaScript</a></li>
+            </ul>
           </h6>
         </li>
 
-        <li>
+        <div class="dropdown">
           <h6 class="side-menu-elements">
-            <a class="txt-menu" href="{% url 'home_tableau' %}">
-              <img src="" class="icon-menu">Tableau électrique
-            </a>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              <img src="/static/image/icon/prise.png" class="icon-menu">
+              Tableau électrique
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a class="txt-menu" href="{% url 'home_tableau' %}">Les disjoncteurs</a></li>
+              <li><a class="txt-menu" href="{% url 'disjoncteur' %}">Les disjoncteurs</a></li>
+              <li><a  class="txt-menu" href="#">JavaScript</a></li>
+            </ul>
           </h6>
-        </li>
-
-      </ul>
+        </div> -->
+      </nav>
     </div>
     {% block contenu %} {% endblock contenu %}
   </div>

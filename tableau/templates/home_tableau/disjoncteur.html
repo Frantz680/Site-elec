@@ -1,0 +1,97 @@
+{% extends 'template_base.html' %}
+
+{% load static %}
+
+{% block title %}Les disjoncteurs{% endblock %}
+
+{% block contenu %}
+
+<div class="masthead-lumiere-home col-md-10">
+    <div class="container-home">
+        <div class="container">
+            <div class="row h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-10 align-self-end">
+                    <h1 class="text-uppercase font-weight-bold title_orange">Les différents disjoncteurs</h1>
+                    <hr class="divider my-4" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-10 text-center text-muted">
+        <h4 class="text-left mt-5 title_orange">
+            Les disjoncteurs
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Les disjoncteurs protège le matèriel contre les surcharges et les courts-circuits.
+            <br/>
+            L'intensité peut varier de 2 à 32 A. 
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Interrupteur différentiel
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Les intérrupteurs différentiels sont conçu pour protéger les personnes. Il se coupe dès que l'intensité du qui sort
+            du circuit est plus faible que celle qui rentre.
+            <br/>
+            Il exciste différent intérrupteurs différentiels:
+            <br/>
+            <br/>
+            Le type AC
+            <br/>
+            Il est utilsé pour les circuits électriques classiques (prises, éclairage, radiateur, etc...)
+            <br/>
+            <br/>
+            Le type A
+            <br/>
+            Il est utilsé pour les circuits qui utilisent du courant à composantes continues(Electronique). Il est obligatoire
+            au minimun sur les plaques de cuisson, les machines à laver et les prises de recharge pour véhicule électrique.
+            <br/>
+            <br/>
+            Le type F (anciennement HI, HPI ou ASI)
+            <br/>
+            Il est utilisé pour les appareils sensibles comme le matiériel informatique, le congélateur et l'alarme.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le délesteur
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Lorsque vous dépasser la puissance sur votre vote disjoncteur, il coupe l'alimentation de un ou de plusieurs circuits
+            non prioritaire (convecteur). Cela évite le déclanchement du disjoncteur principal.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le contacteur jour/nuit
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Il permet la mise sous tension durant les plages horaires à tarif réduit. Une horloge programmable remplit le même rôle.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le télérupteur
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Il vous permet de mettre trois ou plus interrupteur sur un circuit de lumières, souvent utilisé pour la cage d'escalier.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            Le relais temporisé
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Il permet de commander la mise sous et/ou hors tension d'un circuit (éclairage) en fonction d'une durée déterminée.
+        </p>
+
+        <h4 class="text-left mt-5 title_orange">
+            La minuterie
+        </h4>
+        <p class="font-weight-bold text-left text-muted">
+            Commandée par un bouton poussoir, elle permet d'allumer et de s'éteindre automatiquement (le garage, cave) pour 
+            une durée déterminée.
+        </p>
+    </div>
+</div>
+
+
+{% endblock contenu %}
