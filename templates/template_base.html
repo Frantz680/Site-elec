@@ -88,6 +88,9 @@
                   <li>
                     <a class="txt-menu" href="{% url 'home_lumiere' %}">Type d'ampoule</a>
                   </li>
+                  <li>
+                    <a class="txt-menu" href="{% url 'interrupteur' %}">Intérrupteurs</a>
+                  </li>
                   <!-- <li>
                       <a class="scroll-link" href="#section-4">We think that...</a>
                   </li> -->
@@ -101,12 +104,18 @@
                 <img src="/static/image/icon/prise.png" class="icon-menu">Prise électrique
               </a>
               <ul class="collapse list-unstyled" id="prise">
-                  <li>
-                    <a class="txt-menu" href="{% url 'home_prise' %}">Prise</a>
-                  </li>
-                  <!-- <li>
-                      <a class="scroll-link" href="#section-4">We think that...</a>
-                  </li> -->
+                <li>
+                  <a class="txt-menu" href="{% url 'home_prise' %}">Home</a>
+                </li>
+                <li>
+                  <a class="txt-menu" href="{% url 'placo' %}">Placo</a>
+                </li>
+                <li>
+                  <a class="txt-menu" href="{% url 'beton' %}">Béton</a>
+                </li>
+                <li>
+                  <a class="txt-menu" href="{% url 'garage' %}">Garage/Cave</a>
+                </li>
               </ul>
             </h6>  
           </li>
