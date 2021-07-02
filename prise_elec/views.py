@@ -17,12 +17,12 @@ def placo(request):
 
     return render(request, "home_prise/placo.html")
 
-def beton(request):
+def encastrement(request):
     """
     Show home page.
     """
 
-    return render(request, "home_prise/beton.html")
+    return render(request, "home_prise/encastrement.html")
 
 def garage(request):
     """

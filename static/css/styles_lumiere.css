@@ -2,6 +2,7 @@
 .masthead-lumiere-home{
     height: 100%;
     width: 100%;
+    padding-right: -15px !important;
 }
 
 .title_orange
@@ -18,4 +19,15 @@
 .col-ampoule{
     height: 100px;
 
+}
+
+.img_ampoule{
+    width: 500px;
+    height: auto;
+}
+
+.img_ampoule_expli{
+    width: auto;
+    height: 375px;
+    max-width: 500px;
 }

@@ -4,6 +4,8 @@
 
 .navbar{
     background-color:rgba(248,248,248,1);
+    border-bottom: 1px solid;
+    border-color: rgb(245, 107, 69);
 }
 
 .navbar-logo{
@@ -12,5 +14,4 @@
 
 .title_logo{
     color: rgb(245, 107, 69);
-    
 }
