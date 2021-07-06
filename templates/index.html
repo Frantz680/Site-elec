@@ -8,167 +8,33 @@
 
 <!--Top of page-->
 <div class="masthead-lumiere-home col-md-10">
-    <div class="container-home">
-      <div class="row h-100 align-items-center justify-content-center text-center">
-          <div class="col-lg-10 align-self-end">
-              <h1 class="text-uppercase font-weight-bold title_orange">Apprendre le métier d'électricien !</h1>
-              <hr class="divider my-4" />
-          </div>
-          <div class="col-lg-8 align-self-baseline">
-              <p class="text-white-75 font-weight-light mb-5">
-              <h2 class="title_orange">Trouvez toutes les astuces pour devenir meilleur qu'un professionnel.</h2>
-              </p>
-              <hr class="divider my-4" />
-          </div>
-          <div class="col-lg-10 text-muted">
-              N'hésitez pas à vous inscrire et à commentez mes articles, toutes les critiques constructives sont les bienvenues.
-          </div>
-      </div>
+  <div class="container-home">
+    <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+            <h1 class="text-uppercase font-weight-bold title_orange">Apprendre le métier d'électricien !</h1>
+            <hr class="divider my-4" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 font-weight-light mb-2">
+            <h2 class="title_orange">Trouvez toutes les astuces pour devenir meilleur qu'un professionnel.</h2>
+            </p>
+            <hr class="divider my-4" />
+        </div>
+        
     </div>
-    <title>Images de diaporama</title>
-    <style>
-      * {box-sizing: border-box}
-      body {
-      font-family: Verdana, sans-serif;
-      margin:0}
-      .mySlides {display: none}
-      img {vertical-align: middle;}
-      .slideshow-container {
-      max-width: 1000px;
-      position: relative;
-      margin: auto;
-      }
-      /* Boutons next & previous */
-      .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      }
-      /* Position de "next button" à la droite */
-      .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-      }
-      /* En survol, ajoutez la couleur noire de l'arrière-plan avec un peu see-through */
-      .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-      }
-      /* Caption */
-      .text {
-      color: #ffffff;
-      font-size: 15px;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
-      }
-      /* Number text (1/3 etc) */
-      .numbertext {
-      color: #ffffff;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0;
-      }
-      /* The dots/bullets/indicators */
-      .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #999999;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease;
-      }
-      .active, .dot:hover {
-      background-color: #111111;
-      }
-      /* Fading animation */
-      .fade {
-      -webkit-animation-name: fade;
-      -webkit-animation-duration: 5s;
-      animation-name: fade;
-      animation-duration: 5s;
-      }
-      @-webkit-keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
-      }
-      @keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
-      }
-      /* On smaller screens, decrease text size */
-      @media only screen and (max-width: 300px) {
-      .prev, .next,.text {font-size: 11px}
-      }
-    </style>
-  </head>
-  <body>
-    <div class="slideshow-container">
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="{% static 'image/slideshow/Volet-roulant.jpg' %}" style="width:100%">
-        <div class="text text-muted">Astuces sur les volets roulant à venir</div>
-      </div>
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="{% static 'image/slideshow/parabole.jpg' %}" style="width:100%">
-        <div class="text text-muted">Astuces sur le branchement TV à venir</div>
-      </div>
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="/uploads/media/default/0001/03/5bfad15a7fd24d448a48605baf52655a5bbe5a71.jpeg" style="width:100%">
-        <div class="text">New York, USA</div>
-      </div>
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br>
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span> 
-      <span class="dot" onclick="currentSlide(2)"></span> 
-      <span class="dot" onclick="currentSlide(3)"></span> 
-    </div>
-    <script>
-      var slideIndex = 1;
-      showSlides(slideIndex);
-      
-      function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
-      
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-      
-      function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-      }
-    </script>
-</div>
+  </div>
+  <div id="carrousel">
+    <ul>
+      <li><img src="/static/image/slideshow/Les articles à venir.png" class="dimention_photo"></li>
+      <li><img src="/static/image/slideshow/Volet-roulant.jpg" class="dimention_photo"></li>
+      <li><img src="/static/image/slideshow/parabole.jpg" class="dimention_photo"></li>
+    </ul>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <div class="col-lg-12 text-muted">
+    N'hésitez pas à vous inscrire et à commentez mes articles, toutes les critiques constructives sont les bienvenues.
+  </div>
+</div>  
 
 {% endblock contenu %}

@@ -6,6 +6,10 @@ body
 
 /*HEADER*/
 
+.row{
+    margin-right: 15px !important;
+}
+
 .title_orange
 {
     color: rgb(245, 107, 69);
@@ -20,6 +24,51 @@ body
     margin-left: auto;
     margin: 0px;
     padding: 0px;
+}
+
+.dimention_photo{
+    height:500px;
+    width:700px;
+}
+
+#carrousel{
+    position:relative;
+    height:500px;
+    width:700px;
+    margin:auto;
+}
+
+#carrousel ul li{
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+/* Boutons next & previous */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: rgb(245, 107, 69);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position de "next button" à la droite */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* En survol, ajoutez la couleur noire de l'arrière-plan avec un peu see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
 }
 
 /*HISTORY*/
@@ -69,217 +118,4 @@ body
     padding: 10px;
     height: 10%;
     width: 20%;
-}
-
-/*CONTACT*/
-
-#contact_p
-{
-    font-size: 20px;
-}
-
-#title_contact
-{
-    color: rgb(245, 107, 69);
-}
-
-#phone
-{
-    color: rgb(245, 107, 69);
-    font-size: 20px;
-}
-
-#email
-{
-    font-size: 20px;
-}
-
-/*MENTIONS_LEGALES.HTML*/
-
-#header_ml
-{
-    height: 500px;
-}
-
-#ml_p
-{
-    font-size: 20px;
-}
-
-#title_ml
-{
-    color: rgb(245, 107, 69);
-}
-
-#identiter
-{
-    color: rgb(245, 107, 69);
-}
-
-#coordonnee
-{
-    color: rgb(245, 107, 69);
-}
-
-#info_supp
-{
-    color: rgb(245, 107, 69);
-}
-
-/*LOGIN.HTML*/
-
-#title_login
-{
-    color: rgb(245, 107, 69);
-}
-
-/*REGISTER.HTML*/
-
-#form_register
-{
-    position: relative;
-}
-
-#title_register
-{
-    color: rgb(245, 107, 69);
-    margin: 25px;
-}
-
-#class_register
-{
-    margin: 5px;
-    position: relative;
-    font-size: 17px;
-}
-
-.my-label label
-{
-    width: 160px;
-}
-
-#input_register
-{
-    margin: 10px;
-}
-
-/*SEARCH.HTML*/
-/*HEADER*/
-
-#title_search
-{
-    color: rgb(245, 107, 69);
-}
-
-#title_nutri_search
-{
-    color: rgb(245, 107, 69);
-}
-
-/*DETAIL.HTML*/
-
-#detail_nutri_score
-{
-    height: 120px;
-    width: auto;
-    margin: 20px 20px;
-}
-
-#detail_nutri
-{
-    height: 200px;
-    width: auto;
-    margin: 20px 20px;
-}
-
-/*MY_ACCOUNT.HTML*/
-/*HEADER*/
-
-#header_my_account
-{
-    height: 500px;
-}
-
-/*INFORMATION_ACCOUNT*/
-
-#div_information_account
-{
-    font-size: 20px;
-}
-
-#title_info_account
-{
-    color: rgb(245, 107, 69);
-}
-
-#title_products_save
-{
-    color: rgb(245, 107, 69);
-}
-
-/*SECTION*/
-
-#title_substitut
-{
-    color: rgb(245, 107, 69);
-}
-
-.row-search{
-    height: 600px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-.product-card{
-    width: 18rem; 
-    float: left; 
-    margin: 50px 40px;
-}
-  
-.product-card-img{
-    height: 270px;
-    width: auto;
-    background: transparent no-repeat center;
-    background-size: cover;
-}
-   
-.product-card-title{
-    height: 120px;
-    color: rgb(245, 107, 69);
-}
-  
-.product-detail-img{
-    margin: 20px 40px;
-}
-  
-.product-card-badge{
-    position: absolute;
-    left: 250px;
-    top:-20px
-}
-
-.product-nutrigrade{
-    width: 50px; 
-    height: 50px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1em;
-    padding-top: 20px;
-    color: white;
-    border-radius: 50%;
-    background-color: #ee4b28;
-}
-
-#search_product{
-    background-color: grey;
-}
-
-#search_product::placeholder{
-    color: rgb(253, 253, 253);
-}
-
-.h2{
-    color: rgb(253, 253, 253);
 }
