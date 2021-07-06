@@ -1,0 +1,49 @@
+{% include 'template_base.html' %}
+
+{% load static %}
+
+{% block title %}Apprend-elec{% endblock %}
+
+{% block navbar %}
+  
+<!--Navbar-->
+<nav class="navbar navbar-interne navbar-expand-md">
+    <div class="container-home">
+
+        <div class="logo-elec">
+        <a class="align-center" href="{% url 'home' %}">
+            <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec">
+        </a>
+        </div>
+
+        <p class="title_logo" >Apprend-Elec</p>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
+            <img src="/static/image/carotte.png" alt="carotte" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+            </a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
+            <img src="/static/image/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+            </a>
+            </li>  
+
+            {% else %}
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">
+            <img src="/static/image/icon/login.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+            </a>
+            </li>
+            {% endif %}
+        </ul>
+
+        </div>
+    </div>
+</nav>
+
+{% endblock navbar %}
