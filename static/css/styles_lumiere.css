@@ -31,3 +31,8 @@
     height: 375px;
     max-width: 500px;
 }
+
+.input_comment{
+    width: 500px;
+    height: 200px;
+}
