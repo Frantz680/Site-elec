@@ -148,7 +148,7 @@
             {% csrf_token %}
             <div class="row h-100 align-items-center justify-content-center text-center mt-5">
                 <div class="fieldWrapper my-label text-muted text-center col-lg-6" id="name-comment">
-                    {{ form.as_p}}
+                    {{ form }}
                     <!-- <label for="{{ form.name.id_for_label }}" id="name-comment">Votre nom</label>
                     <input class="form-control" type="text" name="name" maxlength="50" required id="id_name"></input>
                     {% if form.name.errors %}
