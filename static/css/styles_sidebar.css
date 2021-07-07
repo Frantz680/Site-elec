@@ -5,6 +5,7 @@
 .icon-menu {
     width:25px;
     height:25px;
+    margin: 10px;
 }
 
 .side-menu-elements {
@@ -18,4 +19,17 @@
     background-color:rgba(248,248,248,1);
     padding-top:25px;
     min-height: 850px;
+}
+
+.txt-menu {
+    display: inline;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    font-size: 20px;
+}
+
+.txt-sous-menu {
+    font-size: 16px;
+    padding-left: 45px;
 }
