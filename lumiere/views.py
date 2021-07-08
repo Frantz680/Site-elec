@@ -20,7 +20,7 @@ def home(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Votre compte a été crée avec succès.')
-            return redirect('home')
+            return redirect('home_lumiere')
     else:
         form = CommentForm()
     return render(request, 'home_lumiere/index.html', {'form': form, 'comments': comments, 'articles': articles})
