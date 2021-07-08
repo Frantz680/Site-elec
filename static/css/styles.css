@@ -29,6 +29,7 @@ body
 .dimention_photo{
     height:500px;
     width:700px;
+    border-radius: 20px;
 }
 
 #carrousel{
@@ -36,6 +37,7 @@ body
     height:500px;
     width:700px;
     margin:auto;
+    filter: drop-shadow(0px 24px 64px rgba(22, 27, 45, 0.1));
 }
 
 #carrousel ul li{
