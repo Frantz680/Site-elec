@@ -1,0 +1,48 @@
+{% extends 'template_base.html' %}
+
+{% load static %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block contenu %}
+
+<!--Top of page-->
+<div class="masthead-lumiere-home col-md-10">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center text-muted">
+            <h1 class="mt-0">Le compte de {{ user.username }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-home mt-5">
+            <div class="card col-lg-4 col-sm-12 text-center">
+                <h1 class="text-center text-muted mt-0" id="title_info_account">Photo de profil</h1>
+                <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-user align-center">
+                <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="sauvegarder" class="btn btn-primary">
+                </form>
+                <!-- <p class="text-muted">
+                    <label for="id_photo">Photo&nbsp;:</label>
+                    <input type="file" name="photo" accept="image/*" id="id_photo">
+                </p> -->
+            </div>
+
+            <div class="card card-dokko-livrable col-lg-7 col-sm-12">
+                <h1 class="text-center text-muted mt-0" id="title_info_account">Vos informations</h1>
+                <br>
+                <p class="font-weight-bold text-muted mb-5">Nom du compte: <span class="title_orange text-right">{{ user.username }}</span></p>
+                <p class="font-weight-bold text-muted mb-5">Adresse mail: 
+                    {% if user.email == "" %}
+                    <span class="title_orange text-right">Aucune adresse-mail</span>
+                    {% else %}
+                    <span class="title_orange text-right">{{ user.email }}</span></p>
+                    {% endif %}
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

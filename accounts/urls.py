@@ -4,7 +4,7 @@ from django.contrib.auth.views import PasswordChangeDoneView, PasswordChangeView
     PasswordResetCompleteView, PasswordResetConfirmView, PasswordResetView, PasswordResetDoneView
 
 from .forms import LoginForm
-from accounts.views import registrer_views
+from accounts.views import registrer_views, my_account_views
 
 urlpatterns = [
     path('login/', views.LoginView.as_view(
@@ -16,8 +16,9 @@ urlpatterns = [
         template_name='registration/logout.html',
         next_page='login'), name="logout"),
 
+    path('my_account/', my_account_views, name='my_account'),
+
     path('register/', registrer_views, name='register'),
-    # path('my_account/', my_account_views, name='my_account'),
 
     path('password_change/done/', PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'),
     name='password_change_done'),
