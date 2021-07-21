@@ -42,22 +42,28 @@
 
         <p class="title_logo" >Apprend-Elec</p>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
+        <div class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
             {% if request.user.is_authenticated %}
-            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'my_account' %}">
-            <img src="/static/image/icon/caisse-a-outils.svg" alt="" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              {% if picture_user == "" %}
+              <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-nav align-center">
+              {% else %}
+              <img src="/media/{{ picture_user }}" class="icon-avatar-nav align-center">
+              {% endif %}
+                <span class="nav-name"></span>
             </a>
-            </li>
-
-            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">
-            <img src="/static/image/icon/box-arrow-right.svg" alt="logout" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-            </a>
-            </li>  
-
-            {% else %}
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'my_account' %}">
+                  Mon compte
+                </a>
+                <a class="dropdown-item" href="{% url 'logout' %}">
+                  Déconnexion
+                </a>
+            </div>
+        </li>
+        {% else %}
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">
             <img src="/static/image/icon/login.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
@@ -86,60 +92,42 @@
           </li>
 
           <li>
+            {% for category in categorys %}
             <h6 class="side-menu-elements">
-              <div class="txt-menu">
-                <a href="#lumiere" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="lumiere">
-                  <img src="/static/image/icon/lumiere.svg" class="icon-menu">Lumière
-                </a>
-              </div>  
-              <ul class="collapse list-unstyled" id="lumiere">
-                  <li>
-                    <a class="txt-sous-menu" href="{% url 'home_lumiere' %}">Type d'ampoule</a>
-                  </li>
-                  <li>
-                    <a class="txt-sous-menu" href="{% url 'interrupteur' %}">Intérrupteurs</a>
-                  </li>
-                  <!-- <li>
-                      <a class="scroll-link" href="#section-4">We think that...</a>
-                  </li> -->
-              </ul>
-            </h6>  
-          </li>
+              <a href="#{{ category.category }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="{{ category.category }}">
+                  <img src="/media/{{ category.icon }}" class="icon-menu">{{ category.category }}
+              </a>
+              <br>
+              <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
 
-          <li>
-            <h6 class="side-menu-elements">
-              <div class="txt-menu">
-                <a href="#prise" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="prise">
-                  <img src="/static/image/icon/prise.png" class="icon-menu">Prise électrique
-                </a>
-              </div>
-              <ul class="collapse list-unstyled" id="prise">
-                <li>
-                  <a class="txt-sous-menu" href="{% url 'home_prise' %}">Home</a>
-                </li>
-                <li>
-                  <a class="txt-sous-menu" href="{% url 'encastrement' %}">Encastrement</a>
-                </li>
-              </ul>
-            </h6>  
-          </li>
-
-          <li>
-            <h6 class="side-menu-elements">
-              <div class="txt-menu">
-                <a href="#tableau" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="tableau">
-                  <img src="/static/image/icon/tableau.png" class="icon-menu">Tableau électrique
-                </a>
-              </div>
-              <ul class="collapse list-unstyled" id="tableau">
+                {% for sous_category in sous_categorys %} 
+                {% if sous_category.category_id == category.id %}
+                <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
                   <li>
-                    <a class="txt-sous-menu" href="{% url 'home_tableau' %}">Les disjoncteurs</a>
+                    <a class="txt-sous-menu" href="{% url 'articles' sous_category=sous_category.name  %}">
+                      {{ sous_category.name }}
+                    </a>
                   </li>
-                  <!-- <li>
-                      <a class="scroll-link" href="#section-4">We think that...</a>
-                  </li> -->
+                </ul>
+                {% endif %}
+                {% endfor %}
+                {% if user.is_superuser %}
+                <li>
+                  <a class="add_cat sous-menu_add_cat" href="{% url 'add' id_cat=category.id %}">
+                    <img src="/static/image/icon/add_category.svg" class="icon-menu">Ajout sous-catégorie
+                  </a>
+                </li>
+                {% endif %}
               </ul>
-            </h6>  
+
+              {% endfor %}
+              <br>
+              {% if user.is_superuser %}
+              <a class="add_cat txt-menu" href="{% url 'add_cat' %}">
+                <img src="/static/image/icon/add_category.svg" class="icon-menu">Ajout
+              </a>
+              {% endif %}
+            </h6>
           </li>
 
         </ul>

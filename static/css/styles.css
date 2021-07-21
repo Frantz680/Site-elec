@@ -6,6 +6,11 @@ body
 
 /*HEADER*/
 
+.hidden-important {
+    visibility: hidden !important;
+    visibility: collapse !important;
+}
+
 .row{
     margin-right: 15px !important;
 }
