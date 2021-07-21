@@ -35,6 +35,7 @@ def my_account_views(request):
 
     user = request.user
     user_avatars = UserProfile.objects.all()
+
     for user_avatar in user_avatars:
         # print(user_avatar.user_id)
         # print(user.id)
@@ -43,7 +44,7 @@ def my_account_views(request):
             # print(picture_user)
             break
     else:
-        pass
+        picture_user = ""
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES)

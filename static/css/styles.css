@@ -8,7 +8,7 @@ body
 
 .hidden-important {
     visibility: hidden !important;
-    visibility: collapse;
+    visibility: collapse !important;
 }
 
 .row{

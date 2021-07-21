@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'lumiere',
     'prise_elec',
     'tableau',
+    'articles',
 ]
 
 MIDDLEWARE = [

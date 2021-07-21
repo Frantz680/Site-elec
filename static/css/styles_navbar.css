@@ -15,3 +15,10 @@
 .title_logo{
     color: rgb(245, 107, 69);
 }
+
+.icon-avatar-nav{
+    width: 50px;
+    border-radius: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
