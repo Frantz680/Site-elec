@@ -40,9 +40,11 @@ class RegisterForm(UserCreationForm):
 
 class UserProfileForm(forms.ModelForm):
 
+    user=forms.CharField()
+
     avatar=forms.ImageField(
         label='Photo de profil :')
 
     class Meta:
         model = UserProfile
-        fields = ['avatar']
+        fields = ['avatar', 'user']

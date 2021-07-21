@@ -41,7 +41,7 @@ def interrupteur(request):
             # Comment.objects.category
             form.save()
             messages.success(request, 'Votre commentaire a été crée avec succès.')
-            return redirect('home_lumiere')
+            return redirect('interrupteur')
     else:
         form = CommentForm()
 
