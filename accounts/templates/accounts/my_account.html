@@ -17,16 +17,25 @@
         <div class="container-home mt-5">
             <div class="card col-lg-4 col-sm-12 text-center">
                 <h1 class="text-center text-muted mt-0" id="title_info_account">Photo de profil</h1>
-                <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-user align-center">
-                <form method="POST">
+                
+                {% if picture_user == "" %}
+                    <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-user align-center">
+                {% else %}
+                    <img src="/media/{{ picture_user }}" class="icon-avatar-user align-center">
+                {% endif %}
+                <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <p class="text-muted">
+                    <label for="id_avatar">Photo de profil :</label> 
+                    <input type="file" name="avatar" accept="image/*" required="" id="id_avatar">
+                </p>
+                <p class="text-muted hidden-important">
+                    <label for="id_user">User&nbsp;:</label> 
+                    <input type="text" name="user" required="" id="id_user" value="{{ user.id }}">
+                </p>
+                <!-- {{ form.as_p }} -->
                 <input type="submit" value="sauvegarder" class="btn btn-primary">
                 </form>
-                <!-- <p class="text-muted">
-                    <label for="id_photo">Photo&nbsp;:</label>
-                    <input type="file" name="photo" accept="image/*" id="id_photo">
-                </p> -->
             </div>
 
             <div class="card card-dokko-livrable col-lg-7 col-sm-12">
