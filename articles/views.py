@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from home.models import Sous_Category
-from home.forms import Articles
+from home.forms import Articles, addArticlesForm
 
 # Create your views here.
 
@@ -15,21 +15,20 @@ def view_articles(request, sous_category):
     articles = Articles.objects.filter(sous_category_id=sous_category.id)
     return render(request, "articles/detail.html", {"sous_category": sous_category, "articles": articles})
 
-# def add_tool(request, sous_category_id):
-#     """
-#     Show home page.
-#     """
-#     if request.method == 'POST':
+def add_articles(request, sous_category_id):
+    """
+    Show home page.
+    """
+    if request.method == 'POST':
 
-#         form_tool = addToolForm(request.POST, request.FILES)
-#         print(form_tool)
+        form = addArticlesForm(request.POST, request.FILES)
 
-#         if form_tool.is_valid():
+        if form.is_valid():
             
-#             form_tool.save()
-#             messages.success(request, 'Votre compte a été crée avec succès.')
-#             return redirect('home')
-#     else:
-#         form_tool = addToolForm()
-#     return render(request, "tools/add_tool.html", {"sous_category_id": sous_category_id, 'form_tool': form_tool})
+            form.save()
+            messages.success(request, 'Votre compte a été crée avec succès.')
+            return redirect('home')
+    else:
+        form = addArticlesForm()
+    return render(request, "articles/add_articles.html", {"sous_category_id": sous_category_id, 'form': form})
 

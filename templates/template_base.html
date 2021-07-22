@@ -30,113 +30,20 @@
 <body>
 
   <!--Navbar-->
-
-  <nav class="navbar navbar-interne navbar-expand-md">
-    <div class="container-home">
-
-        <div class="logo-elec">
-        <a class="align-center" href="{% url 'home' %}">
-            <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec">
-        </a>
-        </div>
-
-        <p class="title_logo" >Apprend-Elec</p>
-
-        <div class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            {% if request.user.is_authenticated %}
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {% if picture_user == "" %}
-              <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-nav align-center">
-              {% else %}
-              <img src="/media/{{ picture_user }}" class="icon-avatar-nav align-center">
-              {% endif %}
-                <span class="nav-name"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'my_account' %}">
-                  Mon compte
-                </a>
-                <a class="dropdown-item" href="{% url 'logout' %}">
-                  Déconnexion
-                </a>
-            </div>
-        </li>
-        {% else %}
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">
-            <img src="/static/image/icon/login.svg" alt="login" WIDTH=60 HEIGHT=60 class="d-inline-block align-top" />
-            </a>
-            </li>
-            {% endif %}
-        </ul>
-
-        </div>
-    </div>
-  </nav>
-
+  {% block navbar %}
+    {% include  'items/navbar.html' %}
+  {% endblock %}
 
   <!--Sidebar-->
-  <div class="row ">      
-    <div class="col-md-2 side-bar">
-      <nav class="sidebar">
+  <div class="row ">
+    {% block sidebar %}
+      {% include  'items/sidebar.html' %}
+    {% endblock %}
 
-        <ul>
-          <li>
-            <h6 class="side-menu-elements">
-              <a class="txt-menu" href="{% url 'home' %}">
-                <img src="/static/image/icon/accueil.svg" class="icon-menu">Home
-              </a>
-            </h6>
-          </li>
-
-          <li>
-            {% for category in categorys %}
-            <h6 class="side-menu-elements">
-              <a href="#{{ category.category }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="{{ category.category }}">
-                  <img src="/media/{{ category.icon }}" class="icon-menu">{{ category.category }}
-              </a>
-              <br>
-              <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
-
-                {% for sous_category in sous_categorys %} 
-                {% if sous_category.category_id == category.id %}
-                <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
-                  <li>
-                    <a class="txt-sous-menu" href="{% url 'articles' sous_category=sous_category.name  %}">
-                      {{ sous_category.name }}
-                    </a>
-                  </li>
-                </ul>
-                {% endif %}
-                {% endfor %}
-                {% if user.is_superuser %}
-                <li>
-                  <a class="add_cat sous-menu_add_cat" href="{% url 'add' id_cat=category.id %}">
-                    <img src="/static/image/icon/add_category.svg" class="icon-menu">Ajout sous-catégorie
-                  </a>
-                </li>
-                {% endif %}
-              </ul>
-
-              {% endfor %}
-              <br>
-              {% if user.is_superuser %}
-              <a class="add_cat txt-menu" href="{% url 'add_cat' %}">
-                <img src="/static/image/icon/add_category.svg" class="icon-menu">Ajout
-              </a>
-              {% endif %}
-            </h6>
-          </li>
-
-        </ul>
-      </nav>
-    </div>
     {% block contenu %} {% endblock contenu %}
   </div>
 
-    <!-- Footer-->
+  <!-- Footer-->
   <footer class="bg-light">
     <div class="container">
       <div class="col-lg-10 mx-auto text-center" class="ml_contact">

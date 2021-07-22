@@ -1,0 +1,56 @@
+{% load static %}
+
+    
+<div class="col-md-2 side-bar">
+    <nav class="sidebar">
+        <ul>
+            <li>
+                <h6 class="side-menu-elements">
+                    <a class="txt-menu" href="{% url 'home' %}">
+                    <img src="/static/image/icon/accueil.svg" class="icon-menu">Home
+                    </a>
+                </h6>
+            </li>
+
+            <li>
+            {% for category in categorys %}
+                <h6 class="side-menu-elements">
+                    <a href="#{{ category.category }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="{{ category.category }}">
+                        <img src="/media/{{ category.icon }}" class="icon-menu">{{ category.category }}
+                    </a>
+                    <br>
+                    <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
+
+                    {% for sous_category in sous_categorys %} 
+                    {% if sous_category.category_id == category.id %}
+                    <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
+                        <li>
+                        <a class="txt-sous-menu" href="{% url 'articles' sous_category=sous_category.name  %}">
+                            {{ sous_category.name }}
+                        </a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                    {% if user.is_superuser %}
+                    <li>
+                        <a class="add_cat sous-menu_add_cat" href="{% url 'add' id_cat=category.id %}">
+                        <img src="/static/image/icon/add_category.svg" class="icon-menu">Ajout sous-catégorie
+                        </a>
+                    </li>
+                    {% endif %}
+                    </ul>
+
+                    {% endfor %}
+                    <br>
+                    {% if user.is_superuser %}
+                    <a class="add_cat txt-menu" href="{% url 'add_cat' %}">
+                    <img src="/static/image/icon/add_category.svg" class="icon-menu">Ajout
+                    </a>
+                    {% endif %}
+                </h6>
+            </li>
+        </ul>
+    </nav>
+</div>
+

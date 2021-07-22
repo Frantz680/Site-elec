@@ -31,7 +31,21 @@ class addArticlesForm(ModelForm):
 
     user = forms.CharField()
 
-    titre = forms.CharField()
+    titre_page = forms.CharField(
+        label="Titre de la page",
+        widget=forms.TextInput(attrs={'class': 'form-control' }),
+        strip=False,
+        required=False)
+
+    sous_titre_page = forms.CharField(
+        label="Sous titre de la page",
+        widget=forms.TextInput(attrs={'class': 'form-control' }),
+        strip=False,
+        required=False)
+
+    titres_articles = forms.CharField(
+        label="Titre de l'article",
+        widget=forms.TextInput(attrs={'class': 'form-control' }))
 
     sous_category_id = forms.CharField()
     
@@ -43,4 +57,4 @@ class addArticlesForm(ModelForm):
 
     class Meta:
         model = Articles
-        fields = ['user', 'titre', 'sous_category_id', 'contenu', 'image_path']
+        fields = ['user', 'titre_page', 'sous_titre_page', 'titres_articles', 'sous_category_id', 'contenu', 'image_path']

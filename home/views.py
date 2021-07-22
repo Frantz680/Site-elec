@@ -22,7 +22,6 @@ def add(request, id_cat):
     """
     Show home page.
     """            
-    
 
     if request.method == 'POST':
         print(id_cat)
