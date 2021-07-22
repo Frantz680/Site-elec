@@ -105,14 +105,14 @@
             <div class="row h-100 align-items-center justify-content-center text-center mt-5">
                 <div class="fieldWrapper my-label text-muted text-center col-lg-6" id="name-comment">
                     {% if request.user.is_authenticated %}
-                    <p class="hidden-important">
+                    <p class="">
                     <label for="id_name">Nom d'utilisateur&nbsp;:</label>
-                    <input type="text" name="name" class="form-control" required="" value="{{ user.username }}" id="id_name">
+                    <input type="text" name="name" class="form-control" required="" value="{{ user.username }}" id="id_name" readonly>
                     </p>
 
-                    <p class="hidden-important">
+                    <p class="">
                     <label for="id_e_mail">E-mail&nbsp;:</label>
-                    <input type="text" name="e_mail" class="form-control" required="" value="{{ user.email }}" id="id_e_mail">
+                    <input type="text" name="e_mail" class="form-control" required="" value="{{ user.email }}" id="id_e_mail" readonly>
                     </p>
                     {% else %}
                     <label for="id_name">Nom d'utilisateur&nbsp;:</label>
