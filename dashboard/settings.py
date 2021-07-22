@@ -44,9 +44,6 @@ INSTALLED_APPS = [
     'send',
     'accounts',
     'home',
-    'lumiere',
-    'prise_elec',
-    'tableau',
     'articles',
 ]
 

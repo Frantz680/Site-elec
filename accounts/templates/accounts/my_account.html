@@ -13,32 +13,39 @@
             <h1 class="mt-0">Le compte de {{ user.username }}</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="container-home mt-5">
+
+        <div class="container-home col-lg-12 mt-5">
             <div class="card col-lg-4 col-sm-12 text-center">
-                <h1 class="text-center text-muted mt-0" id="title_info_account">Photo de profil</h1>
-                
-                {% if picture_user == "" %}
-                    <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-user align-center">
-                {% else %}
-                    <img src="/media/{{ picture_user }}" class="icon-avatar-user align-center">
-                {% endif %}
-                <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <p class="text-muted">
-                    <label for="id_avatar">Photo de profil :</label> 
-                    <input type="file" name="avatar" accept="image/*" required="" id="id_avatar">
-                </p>
-                <p class="text-muted hidden-important">
-                    <label for="id_user">User&nbsp;:</label> 
-                    <input type="text" name="user" required="" id="id_user" value="{{ user.id }}">
-                </p>
-                <!-- {{ form.as_p }} -->
-                <input type="submit" value="sauvegarder" class="btn btn-primary">
-                </form>
+                <div >
+                    <h1 class="text-center text-muted mt-0" id="title_info_account">Photo de profil</h1>
+                    
+                    {% if picture_user == "" %}
+                        <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-user align-center">
+                    {% else %}
+                        <img src="/media/{{ picture_user }}" class="icon-avatar-user align-center">
+                    {% endif %}
+
+                    <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <p class="text-muted hidden-important">
+                        <label for="id_user">User&nbsp;:</label> 
+                        <input type="text" name="user" required="" id="id_user" value="{{ user.id }}">
+                    </p>
+
+                    <p class="text-muted">
+                        <label for="id_avatar">Photo de profil :</label> 
+                        <br>
+                        <input type="file" name="avatar" accept="image/*" required="" id="id_avatar">
+                    </p>
+                    
+                    <!-- {{ form.as_p }} -->
+                    <input type="submit" value="sauvegarder" class="btn btn-primary mb-3">
+                    </form>
+                </div>    
             </div>
 
-            <div class="card card-dokko-livrable col-lg-7 col-sm-12">
+            <div class="card col-lg-7 col-sm-12">
                 <h1 class="text-center text-muted mt-0" id="title_info_account">Vos informations</h1>
                 <br>
                 <p class="font-weight-bold text-muted mb-5">Nom du compte: <span class="title_orange text-right">{{ user.username }}</span></p>
@@ -51,7 +58,7 @@
                 <br>
             </div>
         </div>
-    </div>
+
 </div>
 
 {% endblock %}

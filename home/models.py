@@ -13,8 +13,10 @@ class Sous_Category(models.Model):
 
 class Articles(models.Model):
     user = models.CharField(max_length=150, null=True)
-    titre = models.CharField(max_length=100)
+    titre_page = models.CharField(max_length=100, null=True, blank=True)
+    sous_titre_page = models.CharField(max_length=100, null=True, blank=True)
+    titres_articles = models.CharField(max_length=100)
     sous_category_id = models.IntegerField(null=True, blank=True)
     contenu = models.TextField()
-    image_path = models.CharField(max_length=100, default="/static/image/default/photo_a_venir.png")
+    image_path = models.ImageField(upload_to='articles/')
     date_added = models.DateTimeField(auto_now_add=True)

@@ -1,4 +1,4 @@
-{% extends 'home/template_base.html' %}
+{% extends 'template_base.html' %}
 
 {% load static %}
 
@@ -9,24 +9,30 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row h-100 align-items-center justify-content-center text-center mt-5">
-            <div class="fieldWrapper my-label text-muted text-center col-lg-6" id="name-comment">
-                <!-- {{ form_tool.as_p }} -->
+            <div class="fieldWrapper my-label text-muted text-center col-lg-6">
+                <!-- {{ form.as_p }} -->
+                <p>
+                    <label for="id_titre_page">Titre de la page&nbsp;:</label> 
+                    <input type="text" name="titre_page" class="form-control" id="id_titre_page">
+                </p>
 
-                <p><label for="id_etat">Etat&nbsp;:</label> <select name="etat" id="id_etat">
-                    <option value="1">Bon</option>
-                  
-                    <option value="2">Moyen</option>
-                  
-                    <option value="3">Mauvais</option>
-                  
-                </select></p>
+                <p>
+                    <label for="id_sous_titre_page">Sous titre de la page&nbsp;:</label> 
+                    <input type="text" name="sous_titre_page" class="form-control" id="id_sous_titre_page">
+                </p>
+
+                <p>
+                    <label for="id_titres_articles">Titre de l'article&nbsp;:</label> 
+                    <input type="text" name="titres_articles" class="form-control" required="" id="id_titres_articles">
+                </p>
                 
                 <p>
                     <label for="id_contenu">Commentaire&nbsp;:</label> <textarea name="contenu" cols="40" rows="10" class="form-control" required="" id="id_contenu"></textarea>
                 </p>
 
                 <p>
-                    <label for="id_photo">Photo&nbsp;:</label> <input type="file" name="photo" accept="image/*" id="id_photo">
+                    <label for="id_image_path">Image path&nbsp;:</label> 
+                    <input type="file" name="image_path" accept="image/*" required="" id="id_image_path">
                 </p>
 
                 <p class="hidden-important">
@@ -35,7 +41,7 @@
                 </p>
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <p class="submit">
-                    <input type="submit" name="post" class="btn btn-outline-primary mt-3" value="Ajouter un objet" />
+                    <input type="submit" name="post" class="btn btn-outline-primary mt-3" value="Ajouter l'article" />
                     </p>
                 </div> 
                 <p class="hidden-important">

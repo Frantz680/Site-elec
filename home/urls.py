@@ -8,9 +8,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('add_sous_cat/<slug:id_cat>/', add, name='add'),
     path('add_cat/', add_cat, name='add_cat'),
-    path('lumiere/', include('lumiere.urls')),
-    path('prise/', include('prise_elec.urls')),
-    path('tableau/', include('tableau.urls')),
     path('articles/', include('articles.urls')),
 ]
 
