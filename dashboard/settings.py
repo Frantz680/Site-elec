@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'accounts',
     'home',
     'articles',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,9 @@ LOGIN_REDIRECT_URL = 'home'
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = 'default from email'
+
+
+RECAPTCHA_PUBLIC_KEY = ''
+RECAPTCHA_PRIVATE_KEY = ''
+
+RECAPTCHA_REQUIRED_SCORE = 0.85

@@ -6,7 +6,7 @@
 
 Cette application permettra à quiconque de comprendre et apprendre l'electriciter.
 
-Il y'a diffrentes explications sur :
+Il y'a différentes explications sur :
 - La lumière
 - Les prises
 - Tableau électrique

@@ -20,3 +20,11 @@ class Articles(models.Model):
     contenu = models.TextField()
     image_path = models.ImageField(upload_to='articles/')
     date_added = models.DateTimeField(auto_now_add=True)
+
+class Comment(models.Model):
+    user = models.CharField(max_length=150, null=True, blank=True)
+    name_article = models.CharField(max_length=150,null=True, blank=True)
+    id_sous_category = models.IntegerField(null=True, blank=True)
+    contenu = models.TextField()
+    e_mail = models.EmailField()
+    date_added = models.DateTimeField(auto_now_add=True)
