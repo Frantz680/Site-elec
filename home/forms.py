@@ -2,7 +2,7 @@ from django.db.models import fields
 from django.forms import ModelForm
 from django import forms
 
-from .models import Articles, Sous_Category, Category
+from .models import Articles, Sous_Category, Category, Comment
 
 
 class AddCatForm(ModelForm):
@@ -58,3 +58,33 @@ class addArticlesForm(ModelForm):
     class Meta:
         model = Articles
         fields = ['user', 'titre_page', 'sous_titre_page', 'titres_articles', 'sous_category_id', 'contenu', 'image_path']
+
+class addCommentForm(ModelForm):
+
+    user = forms.CharField(        
+        label="user",
+        widget=forms.TextInput(attrs={'class': 'form-control' }),
+        strip=False,
+        required=False)
+
+    name_article = forms.CharField(
+        label="id_article",
+        widget=forms.TextInput(attrs={'class': 'form-control' }),
+        strip=False,
+        required=False)
+
+    id_sous_category = forms.CharField(
+        label="id_sous_category",
+        widget=forms.TextInput(attrs={'class': 'form-control' }),
+        strip=False,
+        required=False)
+
+    e_mail = forms.CharField()
+    
+    contenu = forms.CharField(
+        label="Commentaire",
+        widget=forms.Textarea(attrs={'class': 'form-control' }))
+
+    class Meta:
+        model = Comment
+        fields = ['user', 'name_article', 'id_sous_category', 'e_mail', 'contenu']

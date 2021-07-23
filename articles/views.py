@@ -2,20 +2,26 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from accounts.models import UserProfile
-from home.models import Sous_Category, Category
-from home.forms import Articles, addArticlesForm
+from home.models import Comment, Sous_Category, Category
+from home.forms import Articles, addArticlesForm, addCommentForm
+from .my_captcha import FormWithCaptcha
 
 # Create your views here.
 
 def view_articles(request, sous_category):
     """
     Show home page.
-    """
+    """    
+
+    comments = Comment.objects.all()
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
+    user_avatars = UserProfile.objects.all()
+
+    sous_category = Sous_Category.objects.get(name=sous_category)
+    articles = Articles.objects.filter(sous_category_id=sous_category.id)
 
     user = request.user
-    user_avatars = UserProfile.objects.all()
 
     for user_avatar in user_avatars:
         # print(user_avatar.user_id)
@@ -26,10 +32,22 @@ def view_articles(request, sous_category):
             break
     else:
         picture_user = ""
-    
-    sous_category = Sous_Category.objects.get(name=sous_category)
-    articles = Articles.objects.filter(sous_category_id=sous_category.id)
-    return render(request, "articles/detail.html", {"sous_category": sous_category, 'picture_user': picture_user, "articles": articles, 'sous_categorys': sous_categorys, "categorys": categorys})
+
+    if request.method == 'POST':
+
+        form = addCommentForm(request.POST)
+
+        if form.is_valid():
+            
+            form.save()
+            messages.success(request, 'Votre compte a été crée avec succès.')
+            return redirect('home')
+    else:
+        form = addCommentForm()
+
+    return render(request, "articles/detail.html", {"sous_category": sous_category, 'picture_user': picture_user, 
+    "articles": articles, 'sous_categorys': sous_categorys, "categorys": categorys, "form": form, "comments": comments,
+    "captcha": FormWithCaptcha,})
 
 def add_articles(request, sous_category_id):
     """
