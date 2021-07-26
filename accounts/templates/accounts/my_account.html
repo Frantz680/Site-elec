@@ -9,7 +9,7 @@
 <!--Top of page-->
 <div class="masthead-lumiere-home" id="myOverlay">
     <div class="container h-100">
-        <div class="row h-100 align-items-center justify-content-center text-center text-muted">
+        <div class="row h-100 align-items-center justify-content-center text-center text-clair">
             <h1 class="mt-0">Le compte de {{ user.username }}</h1>
         </div>
     </div>
@@ -17,7 +17,7 @@
         <div class="container-home col-lg-12 mt-5">
             <div class="card col-lg-4 col-sm-12 text-center bg-dark-sombre">
                 <div >
-                    <h1 class="text-center text-muted mt-0" id="title_info_account">Photo de profil</h1>
+                    <h1 class="text-center text-clair mt-0" id="title_info_account">Photo de profil</h1>
                     
                     {% if picture_user == "" %}
                         <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-user align-center">
@@ -28,12 +28,12 @@
                     <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
 
-                    <p class="text-muted hidden-important">
+                    <p class="text-clair hidden-important">
                         <label for="id_user">User&nbsp;:</label> 
                         <input type="text" name="user" required="" id="id_user" value="{{ user.id }}">
                     </p>
 
-                    <p class="text-muted">
+                    <p class="text-clair">
                         <label for="id_avatar">Photo de profil :</label> 
                         <br>
                         <input type="file" name="avatar" accept="image/*" required="" id="id_avatar">
@@ -46,10 +46,10 @@
             </div>
 
             <div class="card col-lg-7 col-sm-12 bg-dark-sombre">
-                <h1 class="text-center text-muted mt-0" id="title_info_account">Vos informations</h1>
+                <h1 class="text-center text-clair mt-0" id="title_info_account">Vos informations</h1>
                 <br>
-                <p class="font-weight-bold text-muted mb-5">Nom du compte: <span class="title_orange text-right">{{ user.username }}</span></p>
-                <p class="font-weight-bold text-muted mb-5">Adresse mail: 
+                <p class="font-weight-bold text-clair mb-5">Nom du compte: <span class="title_orange text-right">{{ user.username }}</span></p>
+                <p class="font-weight-bold text-clair mb-5">Adresse mail: 
                     {% if user.email == "" %}
                     <span class="title_orange text-right">Aucune adresse-mail</span>
                     {% else %}
