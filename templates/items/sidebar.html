@@ -1,9 +1,16 @@
 {% load static %}
 
     
-<div class="col-md-2 side-bar">
+<div class="w3-sidebar w3-bar-block" style="display:none;z-index:5" id="mySidebar">
     <nav class="sidebar">
         <ul>
+            <li>
+                <h6 class="side-menu-elements">
+                    <img src="/static/image/icon/marque-de-croix.svg" class="icon-menu">
+                    <button onclick="w3_close()" class="txt-menu-fermer">Fermer</button>
+                </h6>
+            </li>
+
             <li>
                 <h6 class="side-menu-elements">
                     <a class="txt-menu" href="{% url 'home' %}">
@@ -16,7 +23,7 @@
             {% for category in categorys %}
                 <h6 class="side-menu-elements">
                     <a href="#{{ category.category }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="{{ category.category }}">
-                        <img src="/media/{{ category.icon }}" class="icon-menu">{{ category.category }}
+                    <img src="/media/{{ category.icon }}" class="icon-menu">{{ category.category }}
                     </a>
                     <br>
                     <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
@@ -53,4 +60,5 @@
         </ul>
     </nav>
 </div>
+<div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 

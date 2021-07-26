@@ -2,11 +2,15 @@
 
 <nav class="navbar navbar-interne navbar-expand-md">
     <div class="container-home">
-
+        <div class="">
+            <button class="sidebar-button color-sidebar-button" onclick="w3_open()">☰</button>
+        </div>
+        
         <div class="logo-elec">
-        <a class="align-center" href="{% url 'home' %}">
-            <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec">
-        </a>
+            
+            <a class="align-center" href="{% url 'home' %}">
+                <img src="{% static 'image/logo/icon-elec.jpg' %}" class="navbar-logo" alt="logo-elec">
+            </a>
         </div>
 
         <p class="title_logo" >Apprend-Elec</p>
