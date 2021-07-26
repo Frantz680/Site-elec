@@ -1,7 +1,7 @@
 /*FOOTER*/
 
 .footer{
-    position:absolute;
+    position: fixed !important;
     bottom:0;
     width:100%;
 }
