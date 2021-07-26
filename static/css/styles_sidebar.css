@@ -2,17 +2,48 @@
 *******SIDEBAR*******
 ********************/
 
+.txt-menu-fermer{
+    display: inline;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    font-size: 25px;
+    border: none;
+    background-color:#4b535c;
+    color: rgb(245, 107, 69);
+}
+
+.icon-menu-fermer{
+    margin: 10px;
+    color: rgb(245, 107, 69);
+}
+
 .icon-menu {
     width:25px;
     height:25px;
     margin: 10px;
 }
 
+@media (max-width: 1300px) {
+    .icon-menu {
+        width:20px;
+        height:20px;
+        margin: 10px;
+    }
+}
+
 .side-menu-elements {
-    font-size:1.1em;
+    font-size:20px;
     padding-top:7px;
     padding-bottom:7px;
     margin-top: 25px;
+}
+
+
+@media (max-width: 1300px) {
+    .side-menu-elements {
+        font-size:16px;
+    }
 }
 
 .side-bar {
@@ -29,10 +60,23 @@
     font-size: 20px;
 }
 
+@media (max-width: 1300px) {
+    .txt-menu {
+        font-size:16px;
+    }
+}
+
 .txt-sous-menu {
     font-size: 16px;
     padding-left: 45px;
 }
+
+@media (max-width: 1300px) {
+    .txt-sous-menu{
+        font-size: 13px;
+    }
+}
+
 
 .sous-menu_add_cat {
     font-size: 16px;
@@ -40,4 +84,14 @@
 
 .add_cat {
     text-align: center;
+}
+
+.w3-sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: rgba(248,248,248,1);
+    position: fixed!important;
+    z-index: 1;
+    overflow: auto;
+    margin-left: -15px;
 }

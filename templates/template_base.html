@@ -27,24 +27,24 @@
   <link rel="icon" type="image/jpg" href="{% static 'image/logo/icon-elec.jpg' %}" sizes="16x16">
 
 </head>
-<body>
+<body class="bg-dark">
 
   <!--Navbar-->
   {% block navbar %}
     {% include  'items/navbar.html' %}
   {% endblock %}
-
+  
   <!--Sidebar-->
   <div class="row ">
     {% block sidebar %}
       {% include  'items/sidebar.html' %}
     {% endblock %}
-
+    
     {% block contenu %} {% endblock contenu %}
   </div>
 
   <!-- Footer-->
-  <footer class="bg-light">
+  <footer class="bg-dark-sombre">
     <div class="container">
       <div class="col-lg-10 mx-auto text-center" class="ml_contact">
         <a href="" class="ml_footer">Mentions légales</a>
@@ -61,6 +61,18 @@
 
   <!-- Core theme JS-->
   <script src="{% static 'js/script.js' %}"></script>
+
+  <script>
+    function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+  }
+
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+  }
+  </script>
 
 </body>
 

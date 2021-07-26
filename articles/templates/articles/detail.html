@@ -6,7 +6,7 @@
 
 {% block contenu %}
 
-<div class="masthead-lumiere-home col-md-10">
+<div class="masthead-lumiere-home" id="myOverlay">
     {% for article in articles %}
     <div class="container-home">
         <div class="container">
@@ -21,7 +21,7 @@
 
                 {% if article.sous_titre_page == "" %}
                 {% else %}
-                <h3 class="text-center mt-5 text-muted">
+                <h3 class="text-center mt-5 text-clair">
                     {{ article.sous_titre_page }}
                 </h3>
                 {% endif %}
@@ -48,23 +48,23 @@
     
     <div class="col-lg-12 text-center">
         {% for article in articles %}
-            <div class="container-home">
+            <div class="container-home mt-5">
                 <div class="col-lg-6">
-                    <h4 class="text-left mt-5 title_orange">
+                    <h4 class="text-left title_orange">
                         {{ article.titres_articles }}
                     </h4>
-                    <p class="font-weight-bold text-left text-muted">
+                    <p class="font-weight-bold text-left text-clair">
                         {{ article.contenu }} contenu
                         <br>
 
-                        <div class="text-muted text-right">
+                        <div class="text-clair text-right">
                             Ajouter le {{ article.date_added }}
                         </div>
 
                     </p>
                 </div>
 
-                <p class="font-weight-bold text-muted img_ampoule col-lg-6">
+                <p class="font-weight-bold text-clair img_ampoule col-lg-6">
                     <img src="/media/{{ article.image_path }}" class="img_ampoule">
                 </p>
 
@@ -81,10 +81,10 @@
         {% if comment.name_article == sous_category.name and comment.id_sous_category == sous_category.id %}
         
         <div class="mt-3">
-            <div class="card border p-2 ">
-                <h5 class="text-muted">{{ comment.user}} - {{ comment.date_added}}</h5>
+            <div class="card border p-2 bg-dark-sombre">
+                <h5 class="text-clair title_orange">{{ comment.user}} - {{ comment.date_added}}</h5>
                 <br/>
-                <p class="text-muted">{{ comment.contenu }}</p>
+                <p class="text-clair">{{ comment.contenu }}</p>
             </div>
         </div>
 
@@ -104,7 +104,7 @@
         <form method="POST">
             {% csrf_token %}
             <div class="row h-100 align-items-center justify-content-center text-center ">
-                <div class="fieldWrapper my-label text-muted text-center col-lg-6" id="name-comment">
+                <div class="fieldWrapper my-label text-clair text-center col-lg-6" id="name-comment">
                     {% if request.user.is_authenticated %}
                     <!-- {{ form.as_p }} -->
 
@@ -126,12 +126,16 @@
 
                     <label class="hidden-important" for="id_name_article">id_article&nbsp;:</label> 
                     <input type="text" name="name_article" class="form-control hidden-important" id="id_name_article" value="{{ sous_category.name }}">
+                    <p>
+                        <label for="id_user">Nom d'utilisateur&nbsp;:</label>
+                        <input type="text" name="user" class="form-control" required="" id="id_user">
+                    </p>
 
-                    <label for="id_user">Nom d'utilisateur&nbsp;:</label>
-                    <input type="text" name="user" class="form-control" required="" id="id_user">
+                    <p>
                     <label for="id_e_mail">E-mail&nbsp;:</label>
                     <input type="text" name="e_mail" class="form-control" required="" id="id_e_mail">
-
+                    </p>
+                    
                     <label class="hidden-important" for="id_id_sous_category">id_sous_category&nbsp;:</label> 
                     <input type="text" name="id_sous_category" class="form-control hidden-important" id="id_id_sous_category" value="{{ sous_category.id }}">
 
@@ -140,10 +144,11 @@
                         <label for="id_contenu">Commentaire&nbsp;:</label> 
                         <textarea name="contenu" cols="40" rows="10" class="form-control" required="" id="id_contenu"></textarea>
                     </p>
-                
-                    {{captcha}}
-
-                    <div class="row h-100 align-items-center justify-content-center text-center">
+                    
+                    <div class="align-items-center">
+                        {{ captcha }}
+                    </div>
+                    <div class="row h-100 align-items-center justify-content-center text-center mt-3 my-4">
                         <p class="submit">
                         <input type="submit" name="post" class="btn btn-outline-primary mt-3" value="Ajouter le commentaire" />
                         </p>
