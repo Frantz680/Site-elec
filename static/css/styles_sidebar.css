@@ -9,7 +9,7 @@
     transition-duration: 0.3s;
     font-size: 25px;
     border: none;
-    background-color:rgba(248,248,248,1);
+    background-color:#4b535c;
     color: rgb(245, 107, 69);
 }
 
@@ -93,4 +93,5 @@
     position: fixed!important;
     z-index: 1;
     overflow: auto;
+    margin-left: -15px;
 }

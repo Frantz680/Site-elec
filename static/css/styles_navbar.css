@@ -31,5 +31,9 @@
 
 .color-sidebar-button{
     color: rgb(245, 107, 69)!important;
-    background-color: rgba(248,248,248,1)!important;
+    background-color: #4b535c !important;
+}
+
+.color-sidebar-button::after{
+    color: rgb(245, 107, 69)!important;
 }

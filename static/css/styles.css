@@ -4,6 +4,10 @@ body
     color: rgb(253, 253, 253);
 }
 
+.bg-dark-sombre{
+    background-color: #4b535c !important;
+}
+
 /*HEADER*/
 
 .hidden-important {
