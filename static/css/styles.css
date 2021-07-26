@@ -8,6 +8,15 @@ body
     background-color: #4b535c !important;
 }
 
+.text-clair{
+    color: #8e9aa5 !important;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #808181;
+    opacity: 1;
+}
+
 /*HEADER*/
 
 .hidden-important {
@@ -22,7 +31,7 @@ body
 
 .title_orange
 {
-    color: rgb(245, 107, 69);
+    color: rgb(245, 107, 69) !important;
 }
 
 .container-home{
@@ -87,39 +96,6 @@ body
 /* En survol, ajoutez la couleur noire de l'arrière-plan avec un peu see-through */
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
-}
-
-/*HISTORY*/
-
-#history_p
-{
-    font-size: 20px;
-}
-
-/*PRESENTATION*/
-
-#coletteremy
-{
-    color: rgb(245, 107, 69);
-}
-
-#ratatouille
-{
-    color: rgb(245, 107, 69);
-}
-
-/*COLETTE*/
-
-#colette
-{
-    color: rgb(245, 107, 69);
-}
-
-/*REMY*/
-
-#remy
-{
-    color: rgb(245, 107, 69);
 }
 
 .input
