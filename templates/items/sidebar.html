@@ -1,11 +1,15 @@
 {% load static %}
 
     
-<div class="w3-sidebar w3-bar-block w3-card sidebar-animation bg-dark-sombre" style="display:none;" id="mySidebar">
+<div class="sidebar bg-dark-sombre" style="display:none;" id="mySidebar">
     <h6 class="side-menu-elements">
-        <img src="/static/image/icon/marque-de-croix.svg" class="icon-menu">
-        <button onclick="w3_close()" class="txt-menu-fermer">Fermer</button>
+        <button class="sidebar-button color-sidebar-button" onclick="w3_close()">☰
+        <span class="title_sidebar">Apprend-Elec</span>
+        <img src="{% static 'image/logo/eclair-eclair.svg' %}" class="navbar-logo_sidebar" alt="logo-elec">
+        </button>
     </h6>
+
+    <hr class="divider my-4">
 
     <h6 class="side-menu-elements">
         <a class="txt-menu" href="{% url 'home' %}">
