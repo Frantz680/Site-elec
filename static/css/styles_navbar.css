@@ -12,10 +12,26 @@
     overflow: auto;
 }
 
-.dropdown-menu.show{
-    position: absolute!important;
-    z-index: 1000!important;
+.dropdown-menu-nav{
+    height: auto;
+    border-radius: 40%;
+    width: auto;
+    background-color: #4b535c !important;
+    position: fixed!important;
+    z-index: 1;
+    overflow: auto;
+    margin-left: -55px;
+    display: none;
 }
+
+.dropdown-item {
+    color: rgb(245, 107, 69);
+}
+
+.dropdown-item::hower {
+    color: rgb(245, 107, 69);
+}
+
 
 .navbar-logo{
     height: 50px;
@@ -25,6 +41,17 @@
     margin-top: 10px;
     color: rgb(245, 107, 69);
     font-weight: 700;
+}
+
+.button-menu-nav{
+    border: none;
+    background: transparent;
+    color: rgb(245, 107, 69);
+}
+
+.button-menu-nav:focus{
+    border: none;
+    outline: none;
 }
 
 .icon-avatar-nav{
