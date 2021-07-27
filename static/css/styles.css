@@ -34,6 +34,53 @@ body
     color: rgb(245, 107, 69) !important;
 }
 
+.title_orange_home
+{
+    color: rgb(245, 107, 69) !important;
+}
+
+@media (max-width: 764px){
+    .title_orange_home {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 600px){
+    .title_orange_home {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 380px){
+    .title_orange_home {
+        font-size: 35px;
+        margin-left: -25px !important;
+    }
+}
+
+.sous_title_orange_home {
+    color: rgb(245, 107, 69) !important;
+}
+
+@media (max-width: 764px){
+    .sous_title_orange_home {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 600px){
+    .sous_title_orange_home {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 380px){
+    .sous_title_orange_home {
+        font-size: 25px;
+        margin-left: -25px !important;
+    }
+}
+
 .container-home{
     display: flex;
     flex-flow: row nowrap;
@@ -46,11 +93,32 @@ body
 }
 
 .dimention_photo{
-    height:auto;
-    width:auto;
-    max-width: 700px;
+    height:500px;
+    width:700px;
     max-height: 500px;
+    max-width: 700px;
     border-radius: 20px;
+}
+
+@media (max-width: 764px){
+    .dimention_photo {
+        height:600px;
+        width:500px;
+    }
+}
+
+@media (max-width: 600px){
+    .dimention_photo {
+        height:400px;
+        width:300px;
+    }
+}
+
+@media (max-width: 380px){
+    .dimention_photo {
+        height:350px;
+        width:250px;
+    }
 }
 
 #carrousel{
@@ -63,6 +131,27 @@ body
     max-height: 500px;
     position: relative;
     margin: auto;
+}
+
+@media (max-width: 764px){
+    #carrousel {
+        height:600px;
+        width:500px;
+    }
+}
+
+@media (max-width: 600px){
+    #carrousel {
+        height:400px;
+        width:300px;
+    }
+}
+
+@media (max-width: 380px){
+    #carrousel {
+        height:350px;
+        width:250px;
+    }
 }
 
 #carrousel ul li{
@@ -112,4 +201,33 @@ body
     padding: 10px;
     height: 10%;
     width: 20%;
+}
+
+.rating {
+    width: 226px;
+    margin: 0 auto 1em;
+    font-size: 35px;
+    overflow:hidden;
+}
+.rating a {
+    float:right;
+    color: #aaa;
+    text-decoration: none;
+    -webkit-transition: color .4s;
+    -moz-transition: color .4s;
+    -o-transition: color .4s;
+    transition: color .4s;
+}
+.rating a:hover,
+.rating a:hover ~ a,
+.rating a:focus,
+.rating a:focus ~ a		{
+    color: orange;
+    cursor: pointer;
+}
+.rating2 {
+    direction: rtl;
+}
+.rating2 a {
+    float:none
 }

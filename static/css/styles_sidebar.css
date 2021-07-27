@@ -32,13 +32,16 @@
     }
 }
 
+.navbar-logo_sidebar{
+    height: 25px;
+}
+
 .side-menu-elements {
     font-size:20px;
     padding-top:7px;
     padding-bottom:7px;
     margin-top: 25px;
 }
-
 
 @media (max-width: 1300px) {
     .side-menu-elements {
@@ -77,16 +80,21 @@
     }
 }
 
-
 .sous-menu_add_cat {
     font-size: 16px;
+}
+
+@media (max-width: 1300px) {
+    .sous-menu_add_cat {
+        font-size: 13px;
+    }
 }
 
 .add_cat {
     text-align: center;
 }
 
-.w3-sidebar {
+.sidebar {
     height: 100%;
     width: 200px;
     background-color: rgba(248,248,248,1);
