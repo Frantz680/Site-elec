@@ -7,9 +7,12 @@
     border-color: rgb(245, 107, 69);
     position: fixed!important;
     width: 100%;
-    height: 93px;
     z-index: 1;
     overflow: auto;
+}
+
+.navbar-nav{
+    height: 65px;
 }
 
 .dropdown-menu-nav{
@@ -28,19 +31,42 @@
     color: rgb(245, 107, 69);
 }
 
-.dropdown-item::hower {
+.dropdown-item:hover {
     color: rgb(245, 107, 69);
 }
 
 
+.icon-connexion{
+    height: 50px;
+    width: 50px;
+}
+
+@media (max-width: 650px){
+    .icon-connexion{
+        height: 40px;
+        width: 40px;
+    }
+}
+
 .navbar-logo{
     height: 50px;
+}
+
+@media (max-width: 650px){
+    .navbar-logo{
+        display: none;
+    }
 }
 
 .title_logo{
     margin-top: 10px;
     color: rgb(245, 107, 69);
     font-weight: 700;
+    padding: 0px;
+}
+
+.show {
+    display:block;
 }
 
 .button-menu-nav{
