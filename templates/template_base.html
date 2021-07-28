@@ -35,23 +35,19 @@
   {% endblock %}
   
   <!--Sidebar-->
-  <div class="row ">
-    {% block sidebar %}
-      {% include  'items/sidebar.html' %}
-    {% endblock %}
-    
-    {% block contenu %} {% endblock contenu %}
-  </div>
+
+  {% block sidebar %}
+    {% include  'items/sidebar.html' %}
+  {% endblock %}
+  
+  {% block contenu %} {% endblock contenu %}
+
 
   <!-- Footer-->
-  <footer class="bg-dark-sombre footer">
-    <div class="container">
-      <div class="col-lg-10 mx-auto text-center" class="ml_contact">
-        <a href="" class="ml_footer">Mentions légales</a>
-        <a href="" class="contact_footer">Contact</a>
-      </div>
-    </div>
-  </footer>
+
+  {% block footer %}
+    {% include  'items/footer.html' %}
+  {% endblock %}
 
 
   <!-- Bootstrap core JS-->
@@ -74,12 +70,9 @@
   }
 
   function navbar_menu_open() {
-    document.getElementById("navbar_open").style.display = "block";
+    document.getElementById("navbar_open").classList.toggle("show");
   }
 
-  function navbar_close() {
-
-  }
   </script>
 
 </body>

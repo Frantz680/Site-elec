@@ -39,8 +39,18 @@
 .side-menu-elements {
     font-size:20px;
     padding-top:7px;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.side-menu-elements-title {
+    font-size:20px;
+    padding-top:7px;
     padding-bottom:7px;
-    margin-top: 25px;
+    margin-left: 15px;
+}
+.side-menu-elements-title .txt-sous-menu {
+    margin-top: 5px;
 }
 
 @media (max-width: 1300px) {
@@ -81,7 +91,7 @@
 }
 
 .sous-menu_add_cat {
-    font-size: 16px;
+    font-size: 13px;
 }
 
 @media (max-width: 1300px) {
