@@ -1,0 +1,48 @@
+
+#exemple2 {
+    /* display: inline-block; */
+}
+#exemple2:after{
+    content:"";
+    /* display: block; */
+    clear:both;
+}
+#exemple2 label{
+    float: right;
+    /* display: inline-block; */
+    font-size: 0;
+}
+#exemple2 label:after{ 
+    content: "★";
+    /* display: block; */
+    font-size: 6rem;
+}
+
+@media (max-width: 1100px){
+    #exemple2 label:after{ 
+        font-size: 4rem !important;
+    }
+}
+
+@media (max-width: 600px){
+    #exemple2 label:after{ 
+        font-size: 2rem !important;
+    }
+}
+
+
+#exemple2 [name="id_note_contenu"]{ 
+    display:none;
+}
+#exemple2:hover label{
+    color: grey!important;
+}
+#exemple2 label:hover ~ label{
+    color: gold!important;
+}
+#exemple2 label:hover{ 
+    color: black!important;
+}
+#exemple2 input:checked ~ label{
+    color: gold;
+}
