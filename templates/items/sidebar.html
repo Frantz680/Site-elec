@@ -36,7 +36,7 @@
 
             {% if user.is_superuser %}
             <li>
-                <a class="add_cat sous-menu_add_cat" href="{% url 'add' id_cat=category.id %}">
+                <a class="sous-menu_add_cat" href="{% url 'add' id_cat=category.id %}">
                     <img src="/static/image/icon/add_category.svg" class="icon-menu">
                     Ajout sous-catégorie
                 </a>
@@ -49,7 +49,7 @@
 
         {% if user.is_superuser %}
         <br>
-        <a class="add_cat txt-menu" href="{% url 'add_cat' %}">
+        <a class="txt-menu" href="{% url 'add_cat' %}">
             <img src="/static/image/icon/add_category.svg" class="icon-menu">Ajout
         </a>
         {% endif %}
