@@ -1,0 +1,29 @@
+{% extends 'template_base.html' %} 
+
+{% load static %} 
+
+{% block title %}Apprend-elec{% endblock %} 
+
+{% block contenu %}
+
+<div class="masthead-lumiere-home col-lg-12" id="myOverlay">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center text-clair">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row h-100 align-items-center justify-content-center text-center mt-5">
+                    <div class="fieldWrapper my-label text-clair text-center col-lg-6 mt-5" id="name-comment">
+                        {{ form }}
+                        <div class="row h-100 align-items-center justify-content-center text-center">
+                            <p class="submit">
+                                <input type="submit" name="post" class="btn btn-outline-primary mt-3" value="Ajouter une sous-categorie" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock contenu %}
