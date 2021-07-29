@@ -1,0 +1,41 @@
+{% extends 'template_base.html' %}
+
+{% load static %}
+
+{% block title %}Apprend-elec{% endblock %}
+
+{% block contenu %}
+
+<div class="masthead-lumiere-home col-lg-12" id="myOverlay">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center text-clair">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="fieldWrapper my-label text-clair text-center">
+
+                    <p>
+                        <label for="id_titre_page">Titre de la page&nbsp;:</label> 
+                        <input type="text" name="titre_page" class="form-control" required="" id="id_titre_page">
+                    </p>
+
+                    <p>
+                        <label for="id_sous_titre_page">Sous titre de la page&nbsp;:</label> 
+                        <input type="text" name="sous_titre_page" class="form-control" required="" id="id_sous_titre_page">
+                    </p>                    
+
+                    <p class="hidden-important">
+                        <label for="id_sous_category_id">Sous category id&nbsp;:</label>
+                        <input type="text" name="sous_category_id" required="" id="id_sous_category_id" value="{{ sous_category_id }}">
+                    </p>
+                    <div class="row h-100 align-items-center justify-content-center text-center">
+                        <p class="submit">
+                        <input type="submit" name="post" class="btn btn-outline-primary mt-3" value="Ajouter l'article" />
+                        </p>
+                    </div> 
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock contenu %}
