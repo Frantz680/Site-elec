@@ -1,9 +1,61 @@
 
 
 .icon-avatar-user{
-    width: 190px;
+    height: 100%;
+    width: 100%;
+    max-height: 110px;
+    max-width: 190px;
     border-radius: 90px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+.card-avatar {
+    position: relative;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-account-col-4{
+    flex: 0 0 30% !important;
+    max-width: 30% !important;
+}
+
+.card-account-col-7{
+    flex: 0 0 60% !important;
+    max-width: 60% !important;
+}
+
+@media (min-width: 993px) {
+    .container-home-responsive {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        margin: 0px;
+        padding: 0px;
+    }    
+}
+
+@media (max-width: 1000px){
+    .card-account-col-4{
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        white-space:normal;
+    }
+}
+
+@media (max-width: 1000px){
+    .card-account-col-7{
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        white-space:normal;
+    }
+}
