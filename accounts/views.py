@@ -3,8 +3,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from accounts.models import UserProfile
-from .forms import RegisterForm, UserProfileForm
+from accounts.forms import RegisterForm, UserProfileForm
+
 from home.models import Sous_Category, Category
+from home.views import request_user_avatar
+
 # Create your views here.
 
 
@@ -17,18 +20,7 @@ def registrer_views(request):
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -40,7 +32,8 @@ def registrer_views(request):
     else:
         form = RegisterForm()
 
-    return render(request, 'registration/register.html', {'form': form, 'picture_user': picture_user, 'sous_categorys': sous_categorys, "categorys": categorys})
+    return render(request, 'registration/register.html', {'form': form, 'picture_user': picture_user, 
+    'sous_categorys': sous_categorys, "categorys": categorys})
 
 @login_required
 def my_account_views(request):
@@ -52,18 +45,7 @@ def my_account_views(request):
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES)
@@ -74,4 +56,5 @@ def my_account_views(request):
     else:
         form = UserProfileForm()
 
-    return render(request, "accounts/my_account.html", {'form': form, 'picture_user': picture_user, 'sous_categorys': sous_categorys, "categorys": categorys})
+    return render(request, "accounts/my_account.html", {'form': form, 'picture_user': picture_user, 
+    'sous_categorys': sous_categorys, "categorys": categorys})

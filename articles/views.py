@@ -9,7 +9,7 @@ from home.forms import addNoteArticleForm
 from articles.models import Contenu, Title, Comment
 from articles.forms import addContenuArticlesForm, addTitleArticlesForm, addCommentForm
 
-from .my_captcha import FormWithCaptcha
+from home.views import request_user_avatar
 
 # Create your views here.
 
@@ -18,26 +18,16 @@ def view_articles(request, sous_category):
     Show home page.
     """    
 
+    picture_user = request_user_avatar(request)
+
     comments = Comment.objects.all()
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
-    user_avatars = UserProfile.objects.all()
 
     sous_category = Sous_Category.objects.get(name=sous_category)
     title_articles = Title.objects.filter(sous_category_id=sous_category.id) 
     contenu_articles = Contenu.objects.filter(sous_category_id=sous_category.id)
-    
-    user = request.user
 
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
 
     if request.method == 'POST':
 
@@ -46,28 +36,27 @@ def view_articles(request, sous_category):
         if form_note.is_valid():
             
             form_note.save()
-            messages.success(request, 'Votre compte a été crée avec succès.')
+            # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
     else:
         form_note = addNoteArticleForm()
 
     if request.method == 'POST':
-
+        
         form = addCommentForm(request.POST)
-
+        
 
         if form.is_valid():
-            
+            human = True
             form.save()
-            messages.success(request, 'Votre compte a été crée avec succès.')
+            # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
-    
     else:
         form = addCommentForm()
-
+    
     return render(request, "articles/detail.html", {"sous_category": sous_category, 'picture_user': picture_user, "title_articles": title_articles,
     "contenu_articles": contenu_articles, 'sous_categorys': sous_categorys, "categorys": categorys, "form": form, "comments": comments,
-    "captcha": FormWithCaptcha, "form_note": form_note,})
+    "form_note": form_note})
 
 def add_contenu_articles(request, sous_category_id):
     """
@@ -76,18 +65,7 @@ def add_contenu_articles(request, sous_category_id):
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     if request.method == 'POST':
 
@@ -96,7 +74,7 @@ def add_contenu_articles(request, sous_category_id):
         if form.is_valid():
             
             form.save()
-            messages.success(request, 'Votre compte a été crée avec succès.')
+            # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
     else:
         form = addContenuArticlesForm()
@@ -110,18 +88,7 @@ def add_title_articles(request, sous_category_id):
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     if request.method == 'POST':
 
@@ -130,7 +97,7 @@ def add_title_articles(request, sous_category_id):
         if form.is_valid():
             
             form.save()
-            messages.success(request, 'Votre compte a été crée avec succès.')
+            # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
     else:
         form = addTitleArticlesForm()
