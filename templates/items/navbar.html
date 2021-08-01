@@ -24,7 +24,7 @@
             <li class="nav-item dropdown">
             {% if request.user.is_authenticated %}
             <button id="navbarDropdown" class="nav-link dropdown-toggle button-menu-nav" onclick="navbar_menu_open()">
-                {% if picture_user == "" %}
+                {% if picture_user == None %}
                 <img src="{% static 'image/default/default-image.jpg' %}" class="icon-avatar-nav align-center">
                 {% else %}
                 <img src="/media/{{ picture_user }}" class="icon-avatar-nav align-center">

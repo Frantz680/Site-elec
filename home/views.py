@@ -7,31 +7,35 @@ from .forms import AddCategoryForm, AddCatForm, AddPictureCarrousel
 from .models import Sous_Category, Category, PictureCarrousel
 
 # Create your views here.
+def request_user_avatar(request):
+    
+    if request.user.is_authenticated:
+        user = request.user
+        user_avatars = UserProfile.objects.all()
 
+        for user_avatar in user_avatars:
+
+            if user_avatar.user_id == user.id:
+                picture_user = user_avatar.avatar
+                return picture_user
+    else:
+        picture_user = ""
+        return picture_user
 
 def home(request):
     """
     Show home page.
     """
-    categorys = Category.objects.all()
+
     sous_categorys = Sous_Category.objects.all()
+    categorys = Category.objects.all()
+
     pictures = PictureCarrousel.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     return render(request, "home/index.html", {'sous_categorys': sous_categorys, 'picture_user': picture_user,
-     "categorys": categorys, "pictures": pictures})
+    "categorys": categorys, "pictures": pictures})
 
 def add(request, id_cat):
     """
@@ -41,28 +45,19 @@ def add(request, id_cat):
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     if request.method == 'POST':
         form = AddCategoryForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Votre compte a été crée avec succès.')
+            # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
     else:
         form = AddCategoryForm()
-    return render(request, "home/add_sous_category.html", {'form': form, 'picture_user': picture_user, 'id_cat': id_cat, 'sous_categorys': sous_categorys, "categorys": categorys})
+
+    return render(request, "home/add_sous_category.html", {'form': form, 'picture_user': picture_user,
+    'id_cat': id_cat, 'sous_categorys': sous_categorys, "categorys": categorys})
 
 def add_cat(request):
     """
@@ -72,24 +67,13 @@ def add_cat(request):
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     if request.method == 'POST':
         form = AddCatForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Votre compte a été crée avec succès.')
+            # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
     else:
         form = AddCatForm()
@@ -101,18 +85,7 @@ def add_picture_carrousel(request):
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
-    user = request.user
-    user_avatars = UserProfile.objects.all()
-
-    for user_avatar in user_avatars:
-        # print(user_avatar.user_id)
-        # print(user.id)
-        if user_avatar.user_id == user.id:
-            picture_user = user_avatar.avatar
-            # print(picture_user)
-            break
-    else:
-        picture_user = ""
+    picture_user = request_user_avatar(request)
 
     if request.method == 'POST':
         form = AddPictureCarrousel(request.POST, request.FILES)
