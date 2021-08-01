@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles_lumiere.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles_footer.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles_prises.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles_detail.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
   <!-- Favicon-->
@@ -59,6 +60,7 @@
   <script src="{% static 'js/script.js' %}"></script>
 
   <script>
+    
     function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
@@ -70,7 +72,7 @@
   }
 
   function navbar_menu_open() {
-    document.getElementById("navbar_open").classList.toggle("show");
+    document.getElementById("navbar_open").classList.toggle("block-nav");
   }
 
   </script>
