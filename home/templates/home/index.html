@@ -23,10 +23,10 @@
     </div>
   </div>
   {% if user.is_superuser %}
-    
-    <a href="{% url 'add_picture_carrousel' %}" class="nav-link js-scroll-trigger">
-        <button type="button" class="btn btn-primary">Ajouter une image</button>
-    </a>
+
+    <button type="button" class="btn btn-primary">Ajouter une image
+    <a href="{% url 'add_picture_carrousel' %}" role="button"></a>
+    </button>
 
   {% endif %}
   <div id="carrousel">

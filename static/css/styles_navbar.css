@@ -65,8 +65,8 @@
     padding: 0px;
 }
 
-.show {
-    display:block;
+.block-nav{
+    display: block;
 }
 
 .button-menu-nav{
@@ -83,8 +83,6 @@
 .icon-avatar-nav{
     width: 50px;
     border-radius: 90px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .title_sidebar{
