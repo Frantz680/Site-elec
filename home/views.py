@@ -37,6 +37,21 @@ def home(request):
     return render(request, "home/index.html", {'sous_categorys': sous_categorys, 'picture_user': picture_user,
     "categorys": categorys, "pictures": pictures})
 
+def ml(request):
+    """
+    Show home page.
+    """
+
+    sous_categorys = Sous_Category.objects.all()
+    categorys = Category.objects.all()
+
+    pictures = PictureCarrousel.objects.all()
+
+    picture_user = request_user_avatar(request)
+
+    return render(request, "home/ml.html", {'sous_categorys': sous_categorys, 'picture_user': picture_user,
+    "categorys": categorys, "pictures": pictures})
+
 def add(request, id_cat):
     """
     Show home page.

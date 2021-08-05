@@ -1,0 +1,161 @@
+{% extends 'template_base.html' %}
+
+{% load static %}
+
+{% block title %}Apprend-elec{% endblock %}
+
+{% block contenu %}
+
+<!--Top of page-->
+<div class="masthead-lumiere-home col-lg-12" id="myOverlay">
+    <div class="container-home">
+        <div class="row h-100 align-items-center justify-content-center mt-5 text-center">
+            <div class="">
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">Éditeur du Site</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">Nom du site web : Apprend-elec</p>
+                <p class="font-weight-bold p-ml mb-3">Adresse : http://79.86.220.77/</p>
+                <p class="font-weight-bold p-ml mb-3">Propriétaire : Dubois François</p>
+                <p class="font-weight-bold p-ml mb-3">Responsable de publication : Dubois François</p>
+                <br>
+                <p class="font-weight-bold p-ml mb-3">Conception et réalisation : Dubois François</p>
+                <p class="font-weight-bold p-ml mb-3">Animation : Dubois François</p>
+                <p class="font-weight-bold p-ml mb-3">Hébergement : Nginx</p>
+                <br>
+
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">CONDITIONS D’UTILISATION</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">L’utilisation du présent site implique l’acceptation pleine et entière 
+                    des conditions générales d’utilisation décrites ci-après. Ces conditions d’utilisation sont susceptibles 
+                    d’être modifiées ou complétées à tout moment.
+                </p>
+                <br>
+
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">INFORMATIONS</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">Les informations et documents du site sont présentés à titre indicatif, 
+                    n’ont pas de caractère exhaustif, et ne peuvent engager la responsabilité du propriétaire du site.
+                    Le propriétaire du site ne peut être tenu responsable des dommages directs et indirects consécutifs à l’accès au site.
+                </p>
+                <br>
+
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">INTERACTIVITÉ</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">Les utilisateurs du site peuvent y déposer du contenu, apparaissant sur le site 
+                    dans des espaces dédiés (notamment via les commentaires). Le contenu déposé reste sous la responsabilité de leurs 
+                    auteurs, qui en assument pleinement l’entière responsabilité juridique.
+                </p>
+                <br>
+
+                <p class="font-weight-bold p-ml mb-3">Le propriétaire du site se réserve néanmoins le droit de retirer sans préavis et 
+                    sans justification tout contenu déposé par les utilisateurs qui ne satisferait pas à la charte déontologique du site 
+                    ou à la législation en vigueur.
+                </p>
+                <br>
+
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">PROPRIÉTÉ INTELLECTUELLE</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, 
+                    logo, icônes, sons, logiciels, etc.) restent la propriété exclusive de leurs auteurs, en ce qui concerne les droits de 
+                    propriété intellectuelle ou les droits d’usage.
+                </p>
+                <br>
+
+                <p class="font-weight-bold p-ml mb-3">Toute reproduction, représentation, modification, publication, adaptation de tout ou partie 
+                    des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de 
+                    l’auteur.
+                </p>
+                <br>
+
+                <p class="font-weight-bold p-ml mb-3">Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient 
+                    est considérée comme constitutive d’une contrefaçon et poursuivie.
+                </p>
+                <br>
+
+                <p class="font-weight-bold p-ml mb-3">Les marques et logos reproduits sur le site sont déposés par les sociétés qui en sont 
+                    propriétaires.
+                </p>
+                <br>
+
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">LIENS</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">Liens sortants :
+                </p>
+                <p class="font-weight-bold p-ml mb-3">Le propriétaire du site décline toute responsabilité et n’est pas engagé par le 
+                    référencement via des liens hypertextes, de ressources tierces présentes sur le réseau Internet, tant en ce qui 
+                    concerne leur contenu que leur pertinence.
+                </p>
+
+                <p class="font-weight-bold p-ml mb-3">Liens entrants :
+                </p>
+                <p class="font-weight-bold p-ml mb-3">Le propriétaire du site autorise les liens hypertextes vers l’une des pages de ce site, 
+                    à condition que ceux-ci ouvrent une nouvelle fenêtre et soient présentés de manière non équivoque afin d’éviter :
+                </p>
+                <p class="font-weight-bold p-ml mb-3">- tout risque de confusion entre le site citant et le propriétaire du site.
+                </p>
+                <p class="font-weight-bold p-ml mb-3">- ainsi que toute présentation tendancieuse, ou contraire aux lois en vigueur.
+                </p>
+                <p class="font-weight-bold p-ml mb-3">Le propriétaire du site se réserve le droit de demander la suppression d’un lien s’il 
+                    estime que le site source ne respecte pas les règles ainsi définies.
+                </p>
+                <br>
+
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">CONFIDENTIALITÉ</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">Tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux 
+                    données personnelles le concernant, en effectuant sa demande écrite et signée, accompagnée d’une preuve d’identité.
+                </p>
+                <p class="font-weight-bold p-ml mb-3">Le site ne recueille pas d’informations personnelles, et n’est pas assujetti à déclaration 
+                    à la CNIL. 
+                </p>
+                <br>
+
+                <div class="col-lg-12 mt-5 align-self-end" >
+                    <h1 class="text-uppercase font-weight-bold title_orange_home">CRÉDITS</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <p class="font-weight-bold p-ml mb-3">Icônes :
+                </p>
+                <p class="font-weight-bold p-ml mb-3">Icône par <a target="_blank" href="https://icones8.fr">Icons8</a>
+                </p>
+                <p class="font-weight-bold p-ml mb-3">Icônes conçues par <a href="https://www.freepik.com" title="Freepik">Freepik</a> 
+                    depuis <a href="https://www.flaticon.com/fr/" title="Flaticon">www.flaticon.com</a>
+                </p>
+
+                <br>
+
+                <p class="font-weight-bold p-ml mb-3">Thème :
+                </p>
+                <p class="font-weight-bold p-ml mb-3">Le <a href="https://startbootstrap.com/theme/creative">thème</a> utilisé.
+                </p>
+
+                <br>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock contenu %}
