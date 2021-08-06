@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.http import HttpResponse
 
 from accounts.models import UserProfile
-from .forms import AddCategoryForm, AddCatForm, AddPictureCarrousel
-from .models import Sous_Category, Category, PictureCarrousel
+from .forms import AddCategoryForm, AddCatForm, AddPictureCarrousel, addImproved, addFutureArticles
+from .models import FutureArticles, Improved, Sous_Category, Category, PictureCarrousel
 
 # Create your views here.
 def request_user_avatar(request):
@@ -30,12 +30,15 @@ def home(request):
     sous_categorys = Sous_Category.objects.all()
     categorys = Category.objects.all()
 
+    improved = Improved.objects.all()
+    article_future = FutureArticles.objects.all()
+
     pictures = PictureCarrousel.objects.all()
 
     picture_user = request_user_avatar(request)
 
     return render(request, "home/index.html", {'sous_categorys': sous_categorys, 'picture_user': picture_user,
-    "categorys": categorys, "pictures": pictures})
+    "categorys": categorys, "pictures": pictures, 'improved': improved, 'article_future': article_future})
 
 def ml(request):
     """
@@ -110,4 +113,39 @@ def add_picture_carrousel(request):
     else:
         form = AddPictureCarrousel()
     return render(request, "home/add_picture_carrousel.html", {'form': form, 'picture_user': picture_user,
+     'sous_categorys': sous_categorys, "categorys": categorys})
+
+def add_improved(request):
+
+    categorys = Category.objects.all()
+    sous_categorys = Sous_Category.objects.all()
+    improved = Improved.objects.all()
+
+    picture_user = request_user_avatar(request)
+
+    if request.method == 'POST':
+        form = addImproved(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = addImproved()
+    return render(request, "home/add_improved.html", {'form': form, 'picture_user': picture_user,
+     'sous_categorys': sous_categorys, "categorys": categorys, 'improved': improved})
+
+def add_future_article(request):
+
+    categorys = Category.objects.all()
+    sous_categorys = Sous_Category.objects.all()
+
+    picture_user = request_user_avatar(request)
+
+    if request.method == 'POST':
+        form = addFutureArticles(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = addFutureArticles()
+    return render(request, "home/add_future_articles.html", {'form': form, 'picture_user': picture_user,
      'sous_categorys': sous_categorys, "categorys": categorys})

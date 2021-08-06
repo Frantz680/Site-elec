@@ -22,13 +22,15 @@
       </div>
     </div>
   </div>
+
   {% if user.is_superuser %}
 
-    <button type="button" class="btn btn-primary">Ajouter une image
-    <a href="{% url 'add_picture_carrousel' %}" role="button"></a>
-    </button>
+    <a href="{% url 'add_picture_carrousel' %}" class="btn btn-primary" role="button">
+      Ajouter une image
+    </a>
 
   {% endif %}
+
   <div id="carrousel">
     <ul style="list-style-type: none;">
       <li><img src="/static/image/slideshow/Les-articles-à-venir.svg" class="dimention_photo"></li>
@@ -39,9 +41,71 @@
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
-  <div class="col-lg-12 text-clair">
-    N'hésitez pas à vous inscrire et à commentez mes articles, toutes les critiques constructives sont les bienvenues.
+
+  <div class="row align-items-center justify-content-center mt-5 text-center">
+    <div class="col-lg-12 align-self-baseline">
+      <p class="text-white-75 font-weight-light mb-2">
+      <h2 class="text-clair">Tous les détails sur les articles à venir et les améliorations.</h2>
+      </p>
+      <hr class="divider my-4" />
+    </div>
+  </div> 
+
+  {% if user.is_superuser %}
+
+    <a href="{% url 'add_future_article' %}" class="btn btn-primary mt-2" role="button">
+      Ajouter du contenu sur les articles à venir
+    </a>
+
+    <br>
+
+    <a href="{% url 'add_improved' %}" class="btn btn-primary mt-2" role="button">
+      Ajouter du contenu sur l'amélioration
+    </a>
+
+  {% endif %}
+  
+  <div class="col-lg-12 mt-5">
+    
+    <h3 class="text-center mt-2 title_orange">
+      Articles à venir
+    </h3>
+  
+    {% for article_future in article_future.all %}
+
+    <div class="mt-3">
+        <div class="card border p-2 bg-dark-sombre">
+            <h5 class="text-clair title_orange">{{ article_future.user}} - {{ article_future.date_added}}</h5>
+            <br/>
+            <p class="text-clair">{{ article_future.contenu }}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <br/>
+
+    <h3 class="text-center mt-2 title_orange">
+        Futur amélioration du site
+    </h3>
+
+    {% for improved in improved.all %}
+
+    <div class="mt-3">
+        <div class="card border p-2 bg-dark-sombre">
+            <h5 class="text-clair title_orange">{{ improved.user}} - {{ improved.date_added}}</h5>
+            <br/>
+            <p class="text-clair">{{ improved.contenu }}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <br/>
+    <br>
+
   </div>
+  
 </div>
 
 {% endblock contenu %}
