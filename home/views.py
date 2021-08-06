@@ -30,8 +30,8 @@ def home(request):
     sous_categorys = Sous_Category.objects.all()
     categorys = Category.objects.all()
 
-    improved = Improved.objects.all()
-    article_future = FutureArticles.objects.all()
+    improved = Improved.objects.all().order_by('-date_added')
+    article_future = FutureArticles.objects.all().order_by('-date_added')
 
     pictures = PictureCarrousel.objects.all()
 
