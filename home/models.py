@@ -20,12 +20,8 @@ class ArticleNote(models.Model):
     note_contenu = models.IntegerField()
     date_added = models.DateTimeField(auto_now_add=True)
 
-class FutureArticles(models.Model):
-    user = models.CharField(max_length=150, blank=True, null=True)
-    contenu = models.TextField()
-    date_added = models.DateTimeField(auto_now_add=True)
-
-class Improved(models.Model):
+class Actualites(models.Model):
+    nom_actu = models.CharField(max_length=150, blank=True, null=True)
     user = models.CharField(max_length=150, blank=True, null=True)
     contenu = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)

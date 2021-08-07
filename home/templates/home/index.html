@@ -33,6 +33,7 @@
 
   <div id="carrousel">
     <ul style="list-style-type: none;">
+      <li><img src="/static/image/slideshow/beta.svg" class="dimention_photo"></li>
       <li><img src="/static/image/slideshow/Les-articles-à-venir.svg" class="dimention_photo"></li>
       {% for picture in pictures %}
       <li><img src="/media/{{ picture.picture }}" class="dimention_photo"></li>
@@ -45,7 +46,7 @@
   <div class="row align-items-center justify-content-center mt-5 text-center">
     <div class="col-lg-12 align-self-baseline">
       <p class="text-white-75 font-weight-light mb-2">
-      <h2 class="text-clair">Tous les détails sur les articles à venir et les améliorations.</h2>
+      <h2 class="text-clair">Dernières actualités</h2>
       </p>
       <hr class="divider my-4" />
     </div>
@@ -53,59 +54,36 @@
 
   {% if user.is_superuser %}
 
-    <a href="{% url 'add_future_article' %}" class="btn btn-primary mt-2" role="button">
-      Ajouter du contenu sur les articles à venir
+    <a href="{% url 'add_actu' %}" class="btn btn-primary mt-2" role="button">
+      Ajouter du contenu sur l'actualités
     </a>
 
-    <br>
-
-    <a href="{% url 'add_improved' %}" class="btn btn-primary mt-2" role="button">
-      Ajouter du contenu sur l'amélioration
     </a>
 
   {% endif %}
-  
-  <div class="col-lg-12 mt-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-6 mb-5">
     
-    <h3 class="text-center mt-2 title_orange">
-      Articles à venir
-    </h3>
-  
-    {% for article_future in article_future.all %}
-
-    <div class="mt-3">
-        <div class="card border p-2 bg-dark-sombre">
-            <h5 class="text-clair title_orange">{{ article_future.user}} - {{ article_future.date_added}}</h5>
-            <br/>
-            <p class="text-clair">{{ article_future.contenu }}</p>
+      {% for actu in actualites.all %}
+      
+      <div class="mt-3 mb-3">
+        <div class="p-2 border bg-dark-sombre">
+            <h5 class="title_orange">{{ actu.user}} - {{ actu.date_added}}</h5>
+            {% if actu.nom_actu == "1" %}
+            <p class="text-uppercase text-clair-actu font-weight-bold">Mise à jour</p>
+            {% elif actu.nom_actu == "2" %}
+            <p class="text-uppercase text-clair-actu font-weight-bold">Prochainement</p>
+            {% else %}
+            <p class="text-uppercase text-clair-actu font-weight-bold">Important</p>
+            {% endif %}
+            <p class="">{{ actu.contenu }}</p>
         </div>
+      </div>
+      
+      {% endfor %}
+
     </div>
-
-    {% endfor %}
-
-    <br/>
-
-    <h3 class="text-center mt-2 title_orange">
-        Futur amélioration du site
-    </h3>
-
-    {% for improved in improved.all %}
-
-    <div class="mt-3">
-        <div class="card border p-2 bg-dark-sombre">
-            <h5 class="text-clair title_orange">{{ improved.user}} - {{ improved.date_added}}</h5>
-            <br/>
-            <p class="text-clair">{{ improved.contenu }}</p>
-        </div>
-    </div>
-
-    {% endfor %}
-
-    <br/>
-    <br>
-
   </div>
-  
 </div>
 
 {% endblock contenu %}
