@@ -5,7 +5,7 @@ from django import forms
 
 from .models import Contenu, Title, Comment
 
-from captcha.fields import CaptchaField
+# from captcha.fields import CaptchaField
 
 class addTitleArticlesForm(ModelForm):
 
@@ -65,7 +65,7 @@ class addCommentForm(ModelForm):
 
     e_mail = forms.CharField()
 
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
 
     contenu = forms.CharField(
         label="Commentaire",
@@ -73,4 +73,4 @@ class addCommentForm(ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['user', 'name_article', 'id_sous_category', 'e_mail', 'captcha', 'contenu']
+        fields = ['user', 'name_article', 'id_sous_category', 'e_mail', 'contenu'] 

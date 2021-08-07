@@ -28,16 +28,17 @@ def view_articles(request, sous_category):
     title_articles = Title.objects.filter(sous_category_id=sous_category.id) 
     contenu_articles = Contenu.objects.filter(sous_category_id=sous_category.id)
 
-
     if request.method == 'POST':
 
         form_note = addNoteArticleForm(request.POST)
+
 
         if form_note.is_valid():
             
             form_note.save()
             # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
+
     else:
         form_note = addNoteArticleForm()
 
@@ -45,9 +46,8 @@ def view_articles(request, sous_category):
         
         form = addCommentForm(request.POST)
         
-
         if form.is_valid():
-            human = True
+
             form.save()
             # messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
@@ -78,6 +78,7 @@ def add_contenu_articles(request, sous_category_id):
             return redirect('home')
     else:
         form = addContenuArticlesForm()
+        
     return render(request, "articles/add_contenu_articles.html", {"sous_category_id": sous_category_id, 
     'picture_user': picture_user, 'form': form, 'sous_categorys': sous_categorys, "categorys": categorys})
 
