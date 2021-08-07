@@ -1,5 +1,6 @@
 from django.db import models
-from captcha.fields import CaptchaField
+
+# from captcha.fields import CaptchaField
 
 # Create your models here.
 
@@ -22,6 +23,5 @@ class Comment(models.Model):
     id_sous_category = models.IntegerField(null=True, blank=True, default=0)
     contenu = models.TextField()
     e_mail = models.EmailField()
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
     date_added = models.DateTimeField(auto_now_add=True)
-

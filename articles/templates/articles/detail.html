@@ -11,7 +11,16 @@
     <div class="container-home col-lg-12">
         <div class="container">
             <div class="row h-100 align-items-center justify-content-center text-center">
-                {% if title.sous_category_id == sous_category.id %}
+                {% if title.titre_page %}
+                <div class="col-lg-12 align-self-end mt-5">
+                    <h1 class="text-uppercase font-weight-bold title_orange mt-5">Aucun article</h1>
+                    <hr class="divider my-4" />
+                </div>
+
+                <h3 class="text-center mt-5 text-clair">
+                    {{ title.sous_titre_page }}
+                </h3>
+                {% else %}
                 <div class="col-lg-12 align-self-end mt-5">
                     <h1 class="text-uppercase font-weight-bold title_orange mt-5">{{ title.titre_page }}</h1>
                     <hr class="divider my-4" />
@@ -27,14 +36,19 @@
     {% endfor %}
 
     {% if user.is_superuser %}
-    
-    <a href="{% url 'add_title_articles' sous_category_id=sous_category.id %}" class="nav-link js-scroll-trigger">
-        <button type="button" class="btn btn-primary">Ajouter un titre</button>
-    </a>
+                
+        <p class="row h-50 align-items-center justify-content-center text-center">
 
-    <a href="{% url 'add_contenu_articles' sous_category_id=sous_category.id %}" class="nav-link js-scroll-trigger">
-        <button type="button" class="btn btn-primary">Ajouter un article</button>
-    </a>
+        <a href="{% url 'add_title_articles' sous_category_id=sous_category.id %}" class="btn btn-primary m-2" role="button" >
+            Ajouter un titre
+        </a>
+
+        <a href="{% url 'add_contenu_articles' sous_category_id=sous_category.id %}" class="btn btn-primary m-2" role="button">
+            Ajouter un article
+        </a>
+        
+        </p>
+
     {% endif %}
 
     <div class="container my-auto">
@@ -73,7 +87,7 @@
         {% endfor %}
     </div>
 
-    {% if request.user.is_authenticated %}
+    <!-- {% if request.user.is_authenticated %}
     <div class="col-lg-12 mt-5">
         <h3 class="text-center mt-2 title_orange">
             Notez l'article pour l'améliorer 
@@ -81,8 +95,8 @@
         <hr class="divider my-4" />
         <form method="POST" id="exemple2">
             {% csrf_token %}
-            <div class="row h-100 align-items-center justify-content-center text-center ">
-                <div class="fieldWrapper my-label text-clair text-center col-lg-6">
+            <div class="row justify-content-center">
+                <div class="fieldWrapper my-label text-center col-lg-4">
                     <div class="justify-content-center">
                         <input class="hidden-important" type="radio" name="note_contenu" id="id_note_contenu-5" value="5">
                         <label class="etoile" for="id_note_contenu-5">Note de 5 sur 5</label>
@@ -106,7 +120,7 @@
             </div>
         </form>
 
-    {% endif %}
+    {% endif %} -->
 
     <div class="col-lg-12 mt-5">
         <h3 class="text-center mt-2 title_orange">
@@ -181,10 +195,9 @@
                         <label for="id_contenu">Commentaire&nbsp;:</label> 
                         <textarea name="contenu" cols="40" rows="10" class="form-control" required="" id="id_contenu"></textarea>
                     </p>
-                    
-                    <div class="align-items-center">
-                        {{ captcha }}
-                    </div>
+
+                    <!-- {{ captcha.as_p }} -->
+
                     <div class="row h-100 align-items-center justify-content-center text-center mt-3 my-4">
                         <p class="submit">
                         <input type="submit" name="post" class="btn btn-outline-primary mt-3" value="Ajouter le commentaire" />
