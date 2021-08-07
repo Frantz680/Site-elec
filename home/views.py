@@ -131,5 +131,5 @@ def add_actu(request):
     else:
         form = ActualitesForm()
 
-    return render(request, "home/add_improved.html", {'form': form, 'picture_user': picture_user,
+    return render(request, "home/add_actu.html", {'form': form, 'picture_user': picture_user,
      'sous_categorys': sous_categorys, "categorys": categorys, "actualites": actualites})
