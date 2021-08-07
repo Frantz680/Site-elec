@@ -60,27 +60,29 @@
     </a>
 
   {% endif %}
-  
-  <div class="col-lg-6 mt-5">
-  
-    {% for actu in actualites.all %}
-
-    <div class="mt-3">
-        <div class="card border p-2 bg-dark-sombre">
-            <h5 class="text-clair title_orange">{{ actu.user}} - {{ actu.date_added}}</h5>
-            <br/>
-            <p class="text-clair">{{ actu.contenu }}</p>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-6 mb-5">
+    
+      {% for actu in actualites.all %}
+      
+      <div class="mt-3 mb-3">
+        <div class="p-2 border bg-dark-sombre">
+            <h5 class="title_orange">{{ actu.user}} - {{ actu.date_added}}</h5>
+            {% if actu.nom_actu == "1" %}
+            <p class="text-uppercase text-clair-actu font-weight-bold">Mise à jour</p>
+            {% elif actu.nom_actu == "2" %}
+            <p class="text-uppercase text-clair-actu font-weight-bold">Prochainement</p>
+            {% else %}
+            <p class="text-uppercase text-clair-actu font-weight-bold">Important</p>
+            {% endif %}
+            <p class="">{{ actu.contenu }}</p>
         </div>
+      </div>
+      
+      {% endfor %}
+
     </div>
-
-    {% endfor %}
-
-
-    <br/>
-    <br>
-
   </div>
-  
 </div>
 
 {% endblock contenu %}
