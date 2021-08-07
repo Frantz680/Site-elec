@@ -45,7 +45,7 @@
   <div class="row align-items-center justify-content-center mt-5 text-center">
     <div class="col-lg-12 align-self-baseline">
       <p class="text-white-75 font-weight-light mb-2">
-      <h2 class="text-clair">Tous les détails sur les articles à venir et les améliorations.</h2>
+      <h2 class="text-clair">Dernières actualités</h2>
       </p>
       <hr class="divider my-4" />
     </div>
@@ -53,53 +53,28 @@
 
   {% if user.is_superuser %}
 
-    <a href="{% url 'add_future_article' %}" class="btn btn-primary mt-2" role="button">
-      Ajouter du contenu sur les articles à venir
+    <a href="{% url 'add_actu' %}" class="btn btn-primary mt-2" role="button">
+      Ajouter du contenu sur l'actualités
     </a>
 
-    <br>
-
-    <a href="{% url 'add_improved' %}" class="btn btn-primary mt-2" role="button">
-      Ajouter du contenu sur l'amélioration
     </a>
 
   {% endif %}
   
-  <div class="col-lg-12 mt-5">
-    
-    <h3 class="text-center mt-2 title_orange">
-      Articles à venir
-    </h3>
+  <div class="col-lg-6 mt-5">
   
-    {% for article_future in article_future.all %}
+    {% for actu in actualites.all %}
 
     <div class="mt-3">
         <div class="card border p-2 bg-dark-sombre">
-            <h5 class="text-clair title_orange">{{ article_future.user}} - {{ article_future.date_added}}</h5>
+            <h5 class="text-clair title_orange">{{ actu.user}} - {{ actu.date_added}}</h5>
             <br/>
-            <p class="text-clair">{{ article_future.contenu }}</p>
+            <p class="text-clair">{{ actu.contenu }}</p>
         </div>
     </div>
 
     {% endfor %}
 
-    <br/>
-
-    <h3 class="text-center mt-2 title_orange">
-        Futur amélioration du site
-    </h3>
-
-    {% for improved in improved.all %}
-
-    <div class="mt-3">
-        <div class="card border p-2 bg-dark-sombre">
-            <h5 class="text-clair title_orange">{{ improved.user}} - {{ improved.date_added}}</h5>
-            <br/>
-            <p class="text-clair">{{ improved.contenu }}</p>
-        </div>
-    </div>
-
-    {% endfor %}
 
     <br/>
     <br>

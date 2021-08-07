@@ -4,7 +4,7 @@ from django.db.models.base import Model
 from django.forms import ModelForm
 from django import forms
 
-from .models import PictureCarrousel, Sous_Category, Category, ArticleNote, FutureArticles, Improved
+from .models import PictureCarrousel, Sous_Category, Category, ArticleNote, Actualites
 
 
 class AddCatForm(ModelForm):
@@ -54,7 +54,11 @@ class addNoteArticleForm(ModelForm):
         model = ArticleNote
         fields = [ 'id_sous_category', 'note_contenu']
 
-class addFutureArticles(ModelForm):
+class ActualitesForm(ModelForm):
+
+    CHOICES = [('1', 'Mises à jour'), ('2', 'Prochainement'), ('3', 'Important')]
+
+    nom_actu = forms.ChoiceField(widget=forms.Select, choices=CHOICES)
 
     user = forms.CharField(        
         label="Nom",
@@ -65,19 +69,5 @@ class addFutureArticles(ModelForm):
         widget=forms.Textarea(attrs={'class': 'form-control' }))
 
     class Meta:
-        model = FutureArticles
-        fields = ['user', 'contenu']
-
-class addImproved(ModelForm):
-
-    user = forms.CharField(        
-        label="Nom",
-        widget=forms.TextInput(attrs={'class': 'form-control' }))
-
-    contenu = forms.CharField(
-        label="Contenu des améliorations",
-        widget=forms.Textarea(attrs={'class': 'form-control' }))
-
-    class Meta:
-        model = Improved
-        fields = [ 'user', 'contenu']
+        model = Actualites
+        fields = ['nom_actu', 'user', 'contenu']
