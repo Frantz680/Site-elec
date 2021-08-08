@@ -64,7 +64,7 @@
   <div class="row align-items-center justify-content-center">
     <div class="col-lg-6 mb-5">
     
-      {% for actu in actualites.all %}
+      {% for actu in actualites %}
       
       <div class="mt-3 mb-3">
         <div class="p-2 border bg-dark-sombre">
@@ -83,6 +83,12 @@
       {% endfor %}
 
     </div>
+  </div>
+  
+  <div class="row align-items-center justify-content-center">
+    <a href="{% url 'all_actu' %}" class="btn btn-outline-primary mb-5" role="button">
+      Toutes les actualités
+    </a>
   </div>
 </div>
 

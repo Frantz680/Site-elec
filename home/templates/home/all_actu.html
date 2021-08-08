@@ -1,0 +1,51 @@
+{% extends 'template_base.html' %}
+
+{% load static %}
+
+{% block title %}Apprend-elec{% endblock %}
+
+{% block contenu %}
+
+<!--Top of page-->
+<div class="masthead-lumiere-home col-lg-12" id="myOverlay">>
+    <div class="row align-items-center justify-content-center mt-5 text-center">
+      <div class="col-lg-10 mt-5 align-self-end">
+          <h1 class="text-uppercase font-weight-bold title_orange_home">Retrouvez toutes les actualités !</h1>
+          <hr class="divider my-4" />
+      </div>
+    </div>
+
+  {% if user.is_superuser %}
+
+    <a href="{% url 'add_actu' %}" class="btn btn-primary mt-2" role="button">
+      Ajouter du contenu sur l'actualités
+    </a>
+
+  {% endif %}
+
+    <div class="row align-items-center justify-content-center">
+        <div class="col-lg-6 mb-5">
+        
+            {% for actu in actualites %}
+            
+            <div class="mt-3 mb-3">
+                <div class="p-2 border bg-dark-sombre">
+                    <h5 class="title_orange">{{ actu.user}} - {{ actu.date_added}}</h5>
+                    {% if actu.nom_actu == "1" %}
+                    <p class="text-uppercase text-clair-actu font-weight-bold">Mise à jour</p>
+                    {% elif actu.nom_actu == "2" %}
+                    <p class="text-uppercase text-clair-actu font-weight-bold">Prochainement</p>
+                    {% else %}
+                    <p class="text-uppercase text-clair-actu font-weight-bold">Important</p>
+                    {% endif %}
+                    <p class="">{{ actu.contenu }}</p>
+                </div>
+            </div>
+            
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock contenu %}
