@@ -30,7 +30,7 @@ def home(request):
     sous_categorys = Sous_Category.objects.all()
     categorys = Category.objects.all()
 
-    actualites = Actualites.objects.all()
+    actualites = Actualites.objects.all()[:5]
 
     pictures = PictureCarrousel.objects.all()
 
@@ -133,3 +133,14 @@ def add_actu(request):
 
     return render(request, "home/add_actu.html", {'form': form, 'picture_user': picture_user,
      'sous_categorys': sous_categorys, "categorys": categorys, "actualites": actualites})
+
+def all_actu(request):
+
+    categorys = Category.objects.all()
+    sous_categorys = Sous_Category.objects.all()
+    actualites = Actualites.objects.all().order_by("-date_added")
+
+    picture_user = request_user_avatar(request)
+
+    return render(request, "home/all_actu.html", {'picture_user': picture_user,
+    'sous_categorys': sous_categorys, "categorys": categorys, "actualites": actualites})
