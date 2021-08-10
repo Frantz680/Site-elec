@@ -2,13 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from accounts.models import UserProfile
+# from accounts.models import UserProfile
 from accounts.forms import RegisterForm, UserProfileForm
 
 from home.models import Sous_Category, Category
 from home.views import request_user_avatar
-
-# Create your views here.
 
 
 def registrer_views(request):
@@ -17,6 +15,7 @@ def registrer_views(request):
     :param request:
     :return: Direction to main page or register.
     """
+
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
@@ -26,22 +25,28 @@ def registrer_views(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
             messages.success(request, 'Votre compte a été crée avec succès.')
             return redirect('home')
     else:
         form = RegisterForm()
 
-    return render(request, 'registration/register.html', {'form': form, 'picture_user': picture_user, 
-    'sous_categorys': sous_categorys, "categorys": categorys})
+    return render(request, 'registration/register.html',
+                  {
+                    'form': form,
+                    'picture_user': picture_user,
+                    'sous_categorys': sous_categorys,
+                    "categorys": categorys
+                  })
+
 
 @login_required
 def my_account_views(request):
     """
     Access to personal space.
     :param request:
-    :return: Direction personal space with the products saved.
+    :return: Direction personal space.
     """
+
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
 
@@ -56,5 +61,10 @@ def my_account_views(request):
     else:
         form = UserProfileForm()
 
-    return render(request, "accounts/my_account.html", {'form': form, 'picture_user': picture_user, 
-    'sous_categorys': sous_categorys, "categorys": categorys})
+    return render(request, "accounts/my_account.html",
+                  {
+                    'form': form,
+                    'picture_user': picture_user,
+                    'sous_categorys': sous_categorys,
+                    "categorys": categorys
+                  })

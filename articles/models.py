@@ -4,10 +4,12 @@ from django.db import models
 
 # Create your models here.
 
+
 class Title(models.Model):
     titre_page = models.CharField(max_length=100, null=True, blank=True)
     sous_titre_page = models.CharField(max_length=100, null=True, blank=True)
     sous_category_id = models.IntegerField(null=True, blank=True)
+
 
 class Contenu(models.Model):
     user = models.CharField(max_length=150, blank=True, null=True)
@@ -16,6 +18,7 @@ class Contenu(models.Model):
     contenu = models.TextField()
     image_path = models.ImageField(upload_to='articles/')
     date_added = models.DateTimeField(auto_now_add=True)
+
 
 class Comment(models.Model):
     user = models.CharField(max_length=150, blank=True, null=True)

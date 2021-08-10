@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = 'django-insecure-a-lr+0_rljq(6myez^3h+od756*b@*gf(91=+r^2i$34mj@vlr
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -84,13 +82,13 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 
 DATABASES = {
         'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'elec',
-        'USER': 'postgres',
-        'PASSWORD': '741852',
-        'HOST': '',
-        'PORT': '',
-    },
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'elec',
+            'USER': 'postgres',
+            'PASSWORD': '741852',
+            'HOST': '',
+            'PORT': '',
+        },
 }
 
 
@@ -99,16 +97,24 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.\
+                 password_validation.\
+                 UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.\
+                 password_validation.\
+                 MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.\
+                 password_validation.\
+                 CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.\
+                 password_validation.\
+                 NumericPasswordValidator',
     },
 ]
 
@@ -118,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fr-FR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -151,8 +157,20 @@ LOGIN_REDIRECT_URL = 'home'
 # EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = 'default from email'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-RECAPTCHA_PUBLIC_KEY = ''
-RECAPTCHA_PRIVATE_KEY = ''
+# CAPTCHA GOOGLE
+
+RECAPTCHA_PUBLIC_KEY = '6LccpbYbAAAAAC7S_uoFgURVbYnjmJ1S5M8eWusF'
+RECAPTCHA_PRIVATE_KEY = '6LccpbYbAAAAANc9lw5g1TMSDQcr7LoaWyX0FI7b'
 
 RECAPTCHA_REQUIRED_SCORE = 0.85
+
+# CAPTCHA DJANGO
+
+# Random chars
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+# Simple Math
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+# # Dictionary Word
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.word_challenge'
