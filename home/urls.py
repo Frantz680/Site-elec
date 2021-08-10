@@ -2,7 +2,8 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from home.views import home, add, add_cat, add_picture_carrousel, ml, add_actu, all_actu
+from home.views import home, add, add_cat, \
+    add_picture_carrousel, ml, add_actu, all_actu
 
 urlpatterns = [
     path('', home, name='home'),
@@ -17,4 +18,6 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT)

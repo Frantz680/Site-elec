@@ -1,14 +1,18 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.http import HttpResponse
+# from django.contrib import messages
 
 from accounts.models import UserProfile
-from .forms import AddCategoryForm, AddCatForm, AddPictureCarrousel, ActualitesForm
-from .models import Sous_Category, Category, PictureCarrousel, Actualites
 
-# Create your views here.
+from home.forms import AddCategoryForm, AddCatForm,\
+    AddPictureCarrousel, ActualitesForm
+from home.models import Sous_Category, Category, PictureCarrousel, Actualites
+
+
 def request_user_avatar(request):
-    
+    """
+    Query to retrieve user profile photo.
+    """
+
     if request.user.is_authenticated:
         user = request.user
         user_avatars = UserProfile.objects.all()
@@ -21,6 +25,7 @@ def request_user_avatar(request):
     else:
         picture_user = ""
         return picture_user
+
 
 def home(request):
     """
@@ -36,12 +41,19 @@ def home(request):
 
     picture_user = request_user_avatar(request)
 
-    return render(request, "home/index.html", {'sous_categorys': sous_categorys, 'picture_user': picture_user,
-    "categorys": categorys, "pictures": pictures, "actualites": actualites})
+    return render(request, "home/index.html",
+                  {
+                    'sous_categorys': sous_categorys,
+                    'picture_user': picture_user,
+                    "categorys": categorys,
+                    "pictures": pictures,
+                    "actualites": actualites
+                  })
+
 
 def ml(request):
     """
-    Show home page.
+    Show mentions légales page.
     """
 
     sous_categorys = Sous_Category.objects.all()
@@ -51,13 +63,19 @@ def ml(request):
 
     picture_user = request_user_avatar(request)
 
-    return render(request, "home/ml.html", {'sous_categorys': sous_categorys, 'picture_user': picture_user,
-    "categorys": categorys, "pictures": pictures})
+    return render(request, "home/ml.html",
+                  {
+                    'sous_categorys': sous_categorys,
+                    'picture_user': picture_user,
+                    "categorys": categorys,
+                    "pictures": pictures
+                  })
+
 
 def add(request, id_cat):
     """
-    Show home page.
-    """            
+    Adding a category.
+    """
 
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
@@ -73,12 +91,19 @@ def add(request, id_cat):
     else:
         form = AddCategoryForm()
 
-    return render(request, "home/add_sous_category.html", {'form': form, 'picture_user': picture_user,
-    'id_cat': id_cat, 'sous_categorys': sous_categorys, "categorys": categorys})
+    return render(request, "home/add_sous_category.html",
+                  {
+                    'form': form,
+                    'picture_user': picture_user,
+                    'id_cat': id_cat,
+                    'sous_categorys': sous_categorys,
+                    "categorys": categorys
+                  })
+
 
 def add_cat(request):
     """
-    Show home page.
+    Adding a sub-category.
     """
 
     categorys = Category.objects.all()
@@ -95,10 +120,19 @@ def add_cat(request):
     else:
         form = AddCatForm()
 
-    return render(request, "home/add_cat.html", {'form': form, 'picture_user': picture_user,
-     'sous_categorys': sous_categorys, "categorys": categorys})
+    return render(request, "home/add_cat.html",
+                  {
+                    'form': form,
+                    'picture_user': picture_user,
+                    'sous_categorys': sous_categorys,
+                    "categorys": categorys
+                  })
+
 
 def add_picture_carrousel(request):
+    """
+    Adding a photo in the carousel.
+    """
 
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
@@ -112,10 +146,20 @@ def add_picture_carrousel(request):
             return redirect('home')
     else:
         form = AddPictureCarrousel()
-    return render(request, "home/add_picture_carrousel.html", {'form': form, 'picture_user': picture_user,
-     'sous_categorys': sous_categorys, "categorys": categorys})
+
+    return render(request, "home/add_picture_carrousel.html",
+                  {
+                    'form': form,
+                    'picture_user': picture_user,
+                    'sous_categorys': sous_categorys,
+                    "categorys": categorys
+                  })
+
 
 def add_actu(request):
+    """
+    Adding information to the news.
+    """
 
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
@@ -131,10 +175,20 @@ def add_actu(request):
     else:
         form = ActualitesForm()
 
-    return render(request, "home/add_actu.html", {'form': form, 'picture_user': picture_user,
-     'sous_categorys': sous_categorys, "categorys": categorys, "actualites": actualites})
+    return render(request, "home/add_actu.html",
+                  {
+                    'form': form,
+                    'picture_user': picture_user,
+                    'sous_categorys': sous_categorys,
+                    "categorys": categorys,
+                    "actualites": actualites
+                  })
+
 
 def all_actu(request):
+    """
+    View all news.
+    """
 
     categorys = Category.objects.all()
     sous_categorys = Sous_Category.objects.all()
@@ -142,5 +196,10 @@ def all_actu(request):
 
     picture_user = request_user_avatar(request)
 
-    return render(request, "home/all_actu.html", {'picture_user': picture_user,
-    'sous_categorys': sous_categorys, "categorys": categorys, "actualites": actualites})
+    return render(request, "home/all_actu.html",
+                  {
+                    'picture_user': picture_user,
+                    'sous_categorys': sous_categorys,
+                    'categorys': categorys,
+                    'actualites': actualites
+                  })
