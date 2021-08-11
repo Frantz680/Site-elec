@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a-lr+0_rljq(6myez^3h+od756*b@*gf(91=+r^2i$34mj@vlr'
+SECRET_KEY = 'insecure-a-lr+0_rljq(6myez^3h+od756*b@*gf(91=+r^2i$34mj@vlr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,11 +83,9 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'elec',
-            'USER': 'postgres',
-            'PASSWORD': '741852',
-            'HOST': '',
-            'PORT': '',
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
         },
 }
 
@@ -97,24 +95,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.\
-                 password_validation.\
-                 UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.\
-                 password_validation.\
-                 MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.\
-                 password_validation.\
-                 CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.\
-                 password_validation.\
-                 NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -159,12 +149,14 @@ LOGIN_REDIRECT_URL = 'home'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+
 # CAPTCHA GOOGLE
 
-RECAPTCHA_PUBLIC_KEY = '6LccpbYbAAAAAC7S_uoFgURVbYnjmJ1S5M8eWusF'
-RECAPTCHA_PRIVATE_KEY = '6LccpbYbAAAAANc9lw5g1TMSDQcr7LoaWyX0FI7b'
+# RECAPTCHA_PUBLIC_KEY = ''
+# RECAPTCHA_PRIVATE_KEY = ''
 
-RECAPTCHA_REQUIRED_SCORE = 0.85
+# RECAPTCHA_REQUIRED_SCORE = 0.85
+
 
 # CAPTCHA DJANGO
 
