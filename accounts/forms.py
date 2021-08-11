@@ -8,6 +8,7 @@ from accounts.models import UserProfile
 
 
 class LoginForm(AuthenticationForm):
+
     username = forms.CharField(
         label="Nom d'utilisateur",
         widget=forms.TextInput(attrs={'class': 'form-control', }))
