@@ -19,6 +19,15 @@
 - wsgi.py
     - Un point d’entrée pour les serveurs Web compatibles WSGI pour déployer votre projet
 
+## Environnement virtuel
+
+- Installation de l'environnement virtuel
+    - pip install virtualenv
+- Ceci va vous créer un dossier "env".
+    - virtualenv -p python3 env
+- Active un environnement virtuel
+    - source env/bin/activate
+    - env/Scripts/activate
 
 ## Commandes:
 
