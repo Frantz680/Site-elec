@@ -7,9 +7,9 @@ class Category(models.Model):
 
 
 class Sous_Category(models.Model):
-    category_id = models.IntegerField(null=True)
     name = models.CharField(max_length=30, unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
+    category_id = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
 
 
 class PictureCarrousel(models.Model):
@@ -18,7 +18,7 @@ class PictureCarrousel(models.Model):
 
 
 class ArticleNote(models.Model):
-    id_sous_category = models.IntegerField(null=True, blank=True)
+    sous_cat_id = models.ForeignKey(Sous_Category, null=True, on_delete=models.SET_NULL)
     note_contenu = models.IntegerField()
     date_added = models.DateTimeField(auto_now_add=True)
 

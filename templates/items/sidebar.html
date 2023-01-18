@@ -23,13 +23,12 @@
         </a>
         <br>
         <ul class="collapse list-unstyled txt-menu" id="{{ category.category }}">
+           
 
             {% for sous_category in sous_categorys %} 
-                {% if sous_category.category_id == category.id %}
+                {% if sous_category.category_id.category == category.category %}
                 <li>
-                    <a class="txt-sous-menu" href="{% url 'articles' sous_category=sous_category.name  %}">
-                        {{ sous_category.name }}
-                    </a>
+
                 </li>
                 {% endif %}
             {% endfor %}
