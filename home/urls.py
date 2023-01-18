@@ -14,7 +14,7 @@ urlpatterns = [
     path('add_actualites/', add_actu, name='add_actu'),
     path('actualite/', all_actu, name='all_actu'),
     path('articles/', include('articles.urls')),
-    path('captcha/', include('captcha.urls')),
+    # path('captcha/', include('captcha.urls')),
 ]
 
 if settings.DEBUG:
